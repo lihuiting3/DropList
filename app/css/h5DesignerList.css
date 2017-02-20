@@ -1,0 +1,128 @@
+.cms-designer{
+    font-size:24px;
+    color:#333333;
+    line-height:24px;
+    background: #fff;
+}
+.cms-designer .tab-title{
+    text-align: center;
+    padding-top:40px;
+}
+.cms-designer .down{
+    background: url(http://imgcms.test.yit.com/cmsres/20170207/ba50cf29-373a-45e5-ae65-bf5b981022d1.png) no-repeat;
+    line-height: 30px;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background-size: 22px auto;
+    margin-left: 19px;
+    vertical-align: -6px;
+}
+.cms-designer .designer-list{
+    margin-top:38px;
+    background: #f9f9f9;
+}
+.cms-designer .designer{
+    margin-bottom:30px;
+    background: #fff;
+}
+.cms-designer .banner{
+    width:750px;
+    height:330px;
+}
+.cms-designer .brand-name{
+    padding: 20px 40px 25px 22px;
+    color: #333;
+    position: relative;
+}
+.cms-designer .right{
+    background: url(http://imgcms.test.yit.com/cmsres/20170207/7a1a0407-7e5e-49c8-92ee-e2c107497c75.png) no-repeat;
+    width: 15px;
+    height: 15px;
+    background-size: auto 15px;
+    line-height: 20px;
+    position: absolute;
+    top: 23px;
+    right: 22px;
+}
+.cms-designer .list{
+    white-space: nowrap;
+    overflow-x:auto;
+    padding:0 22px 25px;
+    -webkit-overflow-scrolling: touch;
+}
+.cms-designer .list li{
+    display:inline-block;
+}
+.cms-designer .brand-item{
+    border-radius:10px;
+    width:140px;
+    height:140px;
+    margin-right:14px;
+}
+.cms-designer .more{
+    border-radius:10px;
+    height:140px;
+    width:90px;
+}
+.cms-designer .tab-down{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index:999;
+}
+.cms-designer .mask{
+    background:#000;
+    opacity:0.5;
+    width:100%;
+    height:100%;
+}
+.cms-designer .tab-content{
+    background:#fff;
+    position:fixed;
+    top:0;
+    width:100%;
+}
+.cms-designer .tab-title1{
+    height:88px;
+    color:#000;
+    font-size: 28px;
+    padding:30px;
+    background:#f9f9f9;
+}
+.cms-designer .up{
+    float: right;
+    display: inline-block;
+    margin-right: 20px;
+    width: 93px;
+    background: url(http://imgcms.test.yit.com/cmsres/20170207/e742713d-76c2-49b2-8bb9-5ae87b1e9771.png) no-repeat;
+    background-position: 70px 5px;
+    background-size: 20px auto;
+    color:#999;
+}
+.cms-designer .tab-down{
+    display:none;
+}
+.tab-down ul{
+    padding:32px 30px 39px;
+    font-size:28px;
+    color:#999999;
+    line-height:22px;
+    text-align:left;
+    overflow: hidden;
+}
+.cms-designer .item{
+    border:1px solid #cccccc;
+    border-radius:8px;
+    height:50px;
+    text-align: center;
+    float:left;
+    margin-right:19px;
+    padding:12px 23px;
+    margin-bottom:18px;
+}
+.cms-designer .active{
+    background:#333333;
+    color:#fff;
+}

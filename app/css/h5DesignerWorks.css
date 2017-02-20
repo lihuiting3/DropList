@@ -1,0 +1,17 @@
+.cms-achievements{
+    background:#fff;
+    padding-top:40px;
+    overflow: hidden;
+    margin-bottom:30px;
+}
+.cms-achievements ul{
+    margin-left:30px;
+    margin-top:48px;
+}
+.cms-achievements li{
+    margin-right:30px;
+    margin-bottom:30px;
+    width:330px;
+    height:330px;
+    float:left;
+}

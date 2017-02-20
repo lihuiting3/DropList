@@ -1,0 +1,14 @@
+.seckill-dates-box,
+.seckill-dates-goods {
+  display: none;
+}
+
+.seckill-dates-list {
+  height: 34px;
+  line-height: 34px;
+  display: flex;
+}
+
+.seckill-dates-list li {
+  flex: 1;
+}

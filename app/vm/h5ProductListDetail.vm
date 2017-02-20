@@ -1,0 +1,25 @@
+#if($content&&$content.size()==1)
+    #set($submodule=$content.get(0))
+    #foreach($item in $submodule)
+    <section class="cms-productlistdetail cms-module-fillprice">
+        #if($!{cms_module_title}&&$!{cms_module_title}!="")
+        <div class="title">
+            <h2>$!{cms_module_title}</h2>
+        </div>
+        #end
+        <a href="$!{item.get('h5link')}" class="cms-src-item" data-cms-itemid="$!{item.get("itemId")}">
+        <div>
+            <img class="lazyload" data-echo="$!{item.get('extImgUrl')}?imageView2/0/w/750" src="http://imgcms.yit.com/h5/images/spacer.gif">
+            <div class="mask-pa cms-fill-soldout" style="display:none;"><span class="v-center">已售罄</span></div>
+        </div>
+        <div>$!{item.get('name')}</div>
+        <div class="description">$!{item.get('subName')}</div>
+        <div class="price">
+            <span class="redColor">¥ </span><span class="redColor realP cms-fill-price"></span>
+            <div class="cms-fill-referencepriceparent"><span class="del">¥ </span><span class="del  cms-fill-referenceprice"></span></div>
+        </div>
+        <div class="button">查看详情</div>
+        </a>
+    </section>
+    #end
+#end

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+    	body img{
+    		background:#d8d8d8;
+    	}
+    </style>
+</head>
+<body>
+
+	<style>
+		.app-download{
+			width:750px;
+			height:104px;
+			background:url(http://imgcms.yit.com/cmsres/20170125/d0fe02fb-ac1b-4eee-8ad3-c4d6767bea78.png);
+			z-index:99999;
+			display:none;
+			overflow: hidden;
+		}
+		.app-download .logo{
+			width: 74px;
+			height:74px;
+			margin:17px 28px 16px 31px;
+			/*background-color: transparent;*/
+		}
+		.app-download .title{
+			font-size:28px;
+			color:#ffffff;
+			text-align:left;
+			display:inline-block;
+			margin-top:23px;
+			margin-bottom:12px;
+		}
+		.app-download .subTitle{
+			font-size:26px;
+			color:#ffffff;
+			text-align:left;
+			display:inline-block;
+		}
+		.app-download div{
+			float:left;
+		}
+		.app-download .download{
+			font-size:26px;
+			color:#ffffff;
+			background:#ad0e11;
+			border-radius:4.16px;
+			width:137px;
+			height:54px;
+			line-height: 54px;
+			display:inline-block;
+			margin-top:26px;
+			margin-left:70px;
+			text-align: center;
+		}
+		.app-download .close{
+			display: inline-block;
+			vertical-align: 21px;
+			margin-left:23px;
+		}
+		.app-download .close img{
+            width:30px;
+            height:30px;
+        }
+	</style>
+	<div class="app-download">
+        <div class="logo"><a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yit.v1" ><img src="http://imgcms.yit.com/cmsres/20170125/392e40d1-78d2-4c0c-b29c-ac39e46725c9.png"></a></div>
+        <div>
+            <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yit.v1" ><span class="title">一条APP，美好生活的入口</span><br>
+            <span class="subTitle">iOS  &  Android</span></a>
+        </div>
+        <div>
+            <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yit.v1" ><span class="download">下载APP</span></a>
+            <span class="close"><img src="http://imgcms.yit.com/cmsres/20170125/ed61fc40-4aaf-48ca-bd38-f91522f50149.png"></span>
+        </div>
+    </div>
+	<script>
+		 $(document).ready(function(){
+            var appDownload; 
+            if(window.sessionStorage){
+                appDownload = sessionStorage.getItem("appDownload");
+                if(window.location.hostname  == "h5.yit.com" && !appDownload){
+                    $(".app-download").css("display", "block");
+                }
+            }
+            $(".close").click(function(){
+                $(".app-download").css("display", "none");
+                sessionStorage.setItem("appDownload", "hide");
+                appDownload = "hide";
+            });
+        });
+		
+	</script>
+
+
+	<!--图片和描述 -->
+	<style>
+		.cms-picture-words{
+			font-size:30px;
+			color:#333333;
+			line-height:42px;
+			margin-bottom:30px;
+			background: #fff;
+			overflow: hidden;
+		}
+		.cms-picture-words p{
+			margin:40px 30px;
+		}
+		.cms-picture-words span{
+			display:block;
+			margin-bottom:40px;
+			font-size:38px;
+			color:#000000;
+			letter-spacing:0px;
+			line-height:38px;
+			text-align:left;
+		}
+
+	</style>
+	<section class="cms-picture-words">
+		<img src="http://placehold.it/750x480">
+		<p><span>有了它们，假期再长也不觉得无聊</span>
+			长假在家，还在低头刷手机？赶紧淘上一款钟爱的“家伙”陪你一起happy吧。
+		</p>
+	</section>
+
+
+	<!--商品和描述 -->
+	<style>
+		.cms-productlistdetail{
+			padding:40px 30px;
+			background:#fff;
+			overflow: hidden;
+			margin-bottom:30px;
+			background:#fff;
+		}
+		.cms-productlistdetail div{
+			font-size:30px;
+			color:#333333;
+			letter-spacing:0px;
+			line-height:40px;
+			text-align:center;
+			margin-top:40px;
+		}
+		.cms-productlistdetail .description{
+			font-size:28px;
+			color:#999999;
+			letter-spacing:0px;
+			line-height:40px;
+			text-align:center;
+			margin-top:16px;
+		}
+		.cms-productlistdetail .price{
+			font-size:26px;
+			letter-spacing:0px;
+			line-height:26px;
+			height:34px;
+			color:#cccccc;
+			margin-top:30px;
+			margin-left: 50%;
+    		transform: translateX(-50%);
+    		-webkit-transform:translateX(-50%);
+		}
+		.cms-productlistdetail .redColor{
+			color:#ad0e11;
+		}
+		.cms-productlistdetail .realP{
+			font-size:34px;
+			line-height:34px;
+			text-align:left;
+			margin-right:14px;
+		}
+		.cms-productlistdetail .button{
+			border:1px solid #000000;
+			border-radius:6px;
+			width:127px;
+			height:51px;
+			margin-top: 40px;
+			font-size:26px;
+			color:#000000;
+			text-align:center;
+			line-height: 51px;
+			margin-left: 50%;
+    		transform: translateX(-50%);
+    		-webkit-transform:translateX(-50%);
+		}
+		.cms-productlistdetail .del{
+			text-decoration: line-through;
+		}
+	</style>
+	<section class="cms-productlistdetail">
+		<img src="http://placehold.it/690x518">
+		<div>无屏电视CC XGIMI极米</div>
+		<div class="description">蓝牙音箱， 一条特别定制款，“中国胆机之父”</div>
+		<div class="price">
+			<span class="redColor">¥</span><span class="redColor realP">2649</span><span class="del">¥</span><span class="del">2799</span>
+		</div>
+		<div class="button">查看详情</div>
+	</section>
+
+	<!--商品列表 -->
+	<style>
+		.cms-recommend-list{
+			padding:30px;
+			font-size:24px;
+			color:#999999;
+			line-height:40px;
+			text-align:left;
+			margin-bottom:30px;
+			background: #fff;
+		}
+		.cms-recommend-list li{
+			width:330px;
+			float:left;
+			padding-bottom:24px;
+		}
+		.cms-recommend-list li:nth-child(2n + 1){
+			margin-right:30px;
+		}
+		.cms-recommend-list img{
+			width:330px;
+			height:330px;
+		}
+		.cms-recommend-list .title{
+			font-size:30px;
+			color:#333333;
+			line-height:44px;
+			display: inline-block;
+			margin-top:20px;
+		}
+		.cms-recommend-list p{
+			height:80px;
+			margin-top:10px;
+		}
+		.cms-recommend-list div{
+			margin-top:27px;
+			font-size: 26px;
+			color:#ccc;
+			height:60px;
+			line-height: 60px;
+			position:relative;
+		}
+		.cms-recommend-list .redColor{
+			color:#ad0e11;
+		}
+		.cms-recommend-list .realP{
+			font-size:34px;
+		}
+		.cms-recommend-list .shopping-car{
+			background:url(icon-buy.png) #f9f9f9;
+			width:60px;
+			height:60px;
+			border-radius:100%;
+			float:right;
+		}
+		.cms-recommend-list .del{
+			text-decoration: line-through;
+		}
+	</style>
+	<section class="cms-recommend-list">
+		<ul>
+			<li>
+				<img src="http://placehold.it/330x330">
+				<span class="title">充电版收音机蓝牙音箱</span>
+				<p>流金岁月 防水便捷，音质醇厚，内置电池</p>
+				<div>
+					<span class="redColor">¥</span><span class="redColor">899</span>
+					<span class="del">¥</span><span class="del">1680</span>
+					<img class="shopping-car" src="http://imgcms.yit.com/h5/images/spacer.gif">
+				</div>
+			</li>
+			<li>
+				<img src="http://placehold.it/330x330">
+				<span class="title">充电版收音机蓝牙音箱</span>
+				<p>流金岁月 防水便捷，音质醇厚，内置电池</p>
+				<div>
+					<span class="redColor">¥</span><span class="redColor">899</span>
+					<span class="del">¥</span><span class="del">1680</span>
+					<img class="shopping-car" src="http://imgcms.yit.com/h5/images/spacer.gif">
+				</div>
+			</li>
+			<li>
+				<img src="http://placehold.it/330x330">
+				<span class="title">充电版收音机蓝牙音箱</span>
+				<p>流金岁月 防水便捷，音质醇厚，内置电池</p>
+				<div>
+					<span class="redColor">¥</span><span class="redColor">899</span>
+					<span class="del">¥</span><span class="del">1680</span>
+					<img class="shopping-car" src="http://imgcms.yit.com/h5/images/spacer.gif">
+				</div>
+			</li>
+			<li>
+				<img src="http://placehold.it/330x330">
+				<span class="title">充电版收音机蓝牙音箱</span>
+				<p>流金岁月 防水便捷，音质醇厚，内置电池</p>
+				<div>
+					<span class="redColor">¥</span><span class="redColor">899</span>
+					<span class="del">¥</span><span class="del">1680</span>
+					<img class="shopping-car" src="http://imgcms.yit.com/h5/images/spacer.gif">
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	<!--滚动图片列表 -->
+	<style>
+	 .cms-picture-list ul{
+	 	padding:30px;
+	 	white-space: nowrap;
+	    overflow-x: auto;
+	    overflow-y: hidden;
+	    -webkit-overflow-scrolling: touch;
+	 }
+	 .cms-picture-list li{
+	 	display:inline-block;
+	 }
+	 .cms-picture-list img{
+		border-radius:8px;
+		width:500px;
+		margin-right:30px;
+	 }
+	</style>
+	<div class="cms-picture-list">
+		<ul>
+			<li><a href="" ><img src="http://placehold.it/500x320"></a></li>
+			<li><a href="" ><img src="http://placehold.it/500x320"></a></li>
+			<li><a href="" ><img src="http://placehold.it/500x320"></a></li>
+		</ul>
+	</div>
+
+
+	<style>
+		.cms-designer{
+			font-size:24px;
+			color:#333333;
+			line-height:24px;
+		}
+		.cms-designer .tab-title{
+			text-align: center;
+			margin-top:40px;
+		}
+		.cms-designer .down{
+			background: url(down.png) no-repeat;
+		    line-height: 30px;
+		    width: 22px;
+		    height: 22px;
+		    display: inline-block;
+		    background-size: 22px auto;
+		    margin-left: 19px;
+		    vertical-align: -6px;
+		}
+		.cms-designer .designer-list{
+			margin-top:38px;
+		}
+		.cms-designer .designer{
+			margin-bottom:30px;
+			background: #fff;
+		}
+		.cms-designer .banner{
+			width:750px;
+			height:330px;
+		}
+		.cms-designer .brand-name{
+			padding:20px 22px 25px;
+		}
+		.cms-designer .right{
+			background: url(right.png) no-repeat;
+		    width: 15px;
+		    height: 15px;
+		    background-size: auto 15px;
+		    display: inline-block;
+		    float: right;
+		    line-height: 20px;
+		    margin-top: 4px;
+		}
+		.cms-designer .list{
+			white-space: nowrap;
+			overflow-x:auto;
+			padding:0 22px 25px;
+			-webkit-overflow-scrolling: touch;
+		}
+		.cms-designer .list li{
+			display:inline-block;
+		}
+		.cms-designer .brand-item{
+			border-radius:10px;
+			width:140px;
+			height:140px;
+			margin-right:14px;
+		}
+		.cms-designer .more{
+			border-radius:10px;
+			height:140px;
+			width:90px;
+		}
+		.cms-designer .tab-down{
+			position:fixed;
+			top:0;
+			width:100%;
+			height:100%;
+		}
+		.cms-designer .mask{
+			background:#000;
+			opacity:0.5;
+			width:100%;
+			height:100%;
+		}
+		.cms-designer .tab-content{
+			background:#fff;
+			position:fixed;
+			top:0;
+			width:100%;
+		}
+		.cms-designer .tab-title1{
+			height:88px;
+			color:#000;
+			font-size: 28px;
+			padding:30px;
+			background:#f9f9f9;
+		}
+		.cms-designer .up{
+			float: right;
+		    display: inline-block;
+		    margin-right: 20px;
+		    width: 93px;
+		    background: url(up.png) no-repeat;
+		    background-position: 70px 5px;
+		    background-size: 20px auto;
+		    color:#999;
+		}
+		.cms-designer .tab-down{
+			display:none;
+		}
+		.tab-down ul{
+			padding:32px 30px 39px;
+			font-size:28px;
+			color:#999999;
+			line-height:22px;
+			text-align:left;
+			overflow: hidden;
+		}
+		.cms-designer .item{
+			border:1px solid #cccccc;
+			border-radius:8px;
+			height:50px;
+			text-align: center;
+			float:left;
+			margin-right:19px;
+			padding:15px 23px;
+			margin-bottom:18px;
+		}
+		.cms-designer .active{
+			background:#333333;
+			color:#fff;
+		}
+	</style>
+	<div class="cms-designer">
+		<div class="tab-title">
+            <h2>
+            	<span>设计师分类</span>
+            	<span class="down"></span>
+            </h2>
+        </div>
+        <div class="tab-down">
+        	<div class="mask"></div>
+        	<div class="tab-content">
+	        	<div class="tab-title1">
+	        		<span>全部设计分类（可多选）</span> <span class="up">收起</span>
+	        	</div>
+	        	<ul>
+	        		<li class="item active">全部</li>
+	        		<li class="item">服装</li>
+	        		<li class="item">艺术课程</li>
+	        		<li class="item">全部</li>
+	        		<li class="item">服装</li>
+	        		<li class="item">艺术课程</li>
+	        		<li class="item">全部</li>
+	        		<li class="item">服装</li>
+	        		<li class="item">艺术课程</li>
+	        	</ul>
+        	</div>
+        </div>
+        <ul class="designer-list">
+        	<li class="designer">
+	            <img class="banner" src="http://placehold.it/750x330">
+	        	<div class="brand-name">ZHANG YUHAO设计师同名品牌创立于同名同名品... <span class="right"></span></div>
+	        	<ul class="list">
+	        		<li >
+	        			<img class="brand-item" src="http://placehold.it/140x140">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://placehold.it/140x140">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://placehold.it/140x140">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://placehold.it/140x140">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://placehold.it/140x140">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://placehold.it/140x140">
+	        		</li>
+	        		<li>
+	        			<img class="more" src="more.png">
+	        		</li>
+	        	</ul>
+        	</li>
+        	<li class="designer">
+	            <img class="banner" src="http://imgcms.yit.com/h5/images/spacer.gif">
+	        	<div class="brand-name">ZHANG YUHAO设计师同名品牌创立于同名同名品... <span class="right"></span></div>
+	        	<ul class="list">
+	        		<li >
+	        			<img class="brand-item" src="http://imgcms.yit.com/h5/images/spacer.gif">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://imgcms.yit.com/h5/images/spacer.gif">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://imgcms.yit.com/h5/images/spacer.gif">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://imgcms.yit.com/h5/images/spacer.gif">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://imgcms.yit.com/h5/images/spacer.gif">
+	        		</li>
+	        		<li >
+	        			<img class="brand-item" src="http://imgcms.yit.com/h5/images/spacer.gif">
+	        		</li>
+	        		<li>
+	        			<img class="more" src="more.png">
+	        		</li>
+	        	</ul>
+        	</li>
+    	</ul>
+	</div>
+
+
+	<style>
+	   .cms-designerinfo{
+	   	background:#fff;
+	   }
+		.cms-designerinfo .container{
+			padding:0px 30px;
+			font-size:30px;
+			color:#333333;
+			line-height:44px;
+			text-align:justify;
+			background:#fff;
+		}
+		.cms-designerinfo h2{
+			font-size:38px;
+			color:#000000;
+			margin-bottom:30px;
+			margin-top:30px;
+		}
+		.cms-designerinfo .label{
+			border:1px solid #ad9e6c;
+			border-radius:8px;
+			width:62px;
+			height:28px;
+			font-size:22px;
+			color:#ad9e6c;
+			line-height:28px;
+			text-align:center;
+			display:inline-block;
+			margin-right: 20px;
+			margin-bottom:30px;
+		}
+		.cms-designerinfo p{
+			margin-bottom:40px;
+		}
+		.cms-designerinfo .show-detail{
+			display:none;
+		}
+		.cms-designerinfo .btn{
+			text-align: right;
+			padding-bottom:30px;
+		}
+		.cms-designerinfo .info{
+			    font-size: 24px;
+			    color: #cccccc;
+			    line-height: 24px;
+			    text-align: left;
+			    display: inline-block;
+			    text-align: right;
+			    width: 180px;
+		}
+		.cms-designerinfo .more-detail{
+			background: url(dot1.jpg) no-repeat;
+		    background-size: auto 12px;
+		    background-position: 0 6px;
+		}
+		.cms-designerinfo .hidden-detail{
+			background: url(dot2.jpg) no-repeat;
+		    background-size: auto 24px;
+		    width:140px;
+		    display:none;
+		}
+	</style>
+	<div class="cms-designerinfo">
+		<img src="http://imgcms.yit.com/h5/images/spacer.gif">
+		<div class="container">
+			<h2>设计师：张羽昊</h2>
+			<div>
+				<span class="label">服饰</span>
+				<span class="label">设计</span>
+			</div>
+			<p>
+				我们心目的人群是浪漫，潇洒同时又是有点反叛和冷酷的男人和女人，无论身在何处都保有纯粹简单的生活状态，有时候甚至有点不修边幅，以及颓废。
+
+				因为穿着本身不是桎梏和目的，同时也不是一件刻意的正经事。
+			</p>
+			<div class="show-detail">
+				<img src="http://imgcms.yit.com/h5/images/spacer.gif">
+				<h2>设计师介绍</h2>
+				<p>
+					2013-2014年就读于英国中央圣马丁艺术与设计学院研究生院。 英国在校期间曾参与Alexander McQueen的面料产品开发设计,辅助设计工艺。
+
+					2014年被VOGUE ITALY选为VOGUE TALENTS。
+					2015年发布第一个女装成衣系列，面向市场。
+
+					与此同时，作品也刊登于例如VOGUE, ELLE, HARPER’SBAZZAR, WGSN等时尚媒体以及流行趋势预测机构。
+				</p>
+			</div>
+			<div class="btn">
+				<span class="info more-detail">查看详情</span>
+				<span class="info hidden-detail">收起详情</span>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.cms-achievements{
+			background:#fff;
+			padding-top:40px;
+			overflow: hidden;
+			margin-bottom:30px;
+		}
+		.cms-achievements ul{
+			margin-left:30px;
+			margin-top:48px;
+		}
+		.cms-achievements li{
+			margin-right:30px;
+			margin-bottom:30px;
+			width:330px;
+			height:330px;
+			float:left;
+		}
+	</style>
+	<div class="cms-achievements">
+		<div class="title">
+            <h2>设计师作品</h2>
+        </div>
+        <ul>
+        	<li><img src="http://placehold.it/330x330"> </li>
+        	<li><img src="http://placehold.it/330x330"> </li>
+        	<li><img src="http://placehold.it/330x330"> </li>
+        </ul>
+	</div>
+
+	<style>
+		.cms-bannerlist{
+			background:#fff;
+			padding-top:40px;
+			overflow: hidden;
+		}
+		.cms-bannerlist ul{
+			margin-top:40px;
+		}
+		.cms-bannerlist li{
+			margin:20px 30px;
+			border-radius:8px;
+			width:690px;
+			height:260px;
+			overflow: hidden;
+		}
+	</style>
+	<div class="cms-bannerlist">
+		<div class="title">
+            <h2>设计师作品</h2>
+        </div>
+        <ul>
+        	<li><img src="http://placehold.it/690x260"> </li>
+        	<li><img src="http://placehold.it/690x260"> </li>
+        	<li><img src="http://placehold.it/690x260"> </li>
+        </ul>
+	</div>
+</body>
+</html>

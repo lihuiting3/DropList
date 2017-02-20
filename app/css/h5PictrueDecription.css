@@ -1,0 +1,22 @@
+.cms-picture-words{
+    font-size:30px;
+    color:#333333;
+    line-height:42px;
+    margin-bottom:30px;
+    background: #fff;
+    overflow: hidden;
+}
+.cms-picture-words p{
+    color:#333;
+    margin:40px 30px;
+}
+.cms-picture-words span{
+    display:block;
+    margin-bottom:24px;
+    font-size:38px;
+    color:#000000;
+    letter-spacing:0px;
+    line-height:38px;
+    text-align:left;
+    font-weight: bold;
+}

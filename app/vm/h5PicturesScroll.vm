@@ -1,0 +1,20 @@
+#if($content&&$content.size()==1)
+    #set($submodule=$content.get(0))
+    #if($submodule && $submodule.size() > 0)
+    <div class="cms-picture-list">
+        #if($!{cms_module_title}&&$!{cms_module_title}!="")
+        <div class="title title02">
+            <h2>$!{cms_module_title}</h2>
+            <p>$!{cms_module_subtitle}</p>
+        </div>
+        #end
+        <ul>
+            #foreach($item in $submodule)
+                <li><a href="$!{item.get("h5link")}" >
+                <img class="lazyload" data-echo="$!{item.get('imgUrl')}?imageView2/0/w/750" src="http://imgcms.yit.com/h5/images/spacer.gif">
+                </a></li>
+            #end
+        </ul>
+    </div>
+    #end
+#end

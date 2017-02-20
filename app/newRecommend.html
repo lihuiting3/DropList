@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=640">
+	<title>新品推荐</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="//img0.fengqucdn.com/fqhth5/h5-common-oss/2.0.19/styles/h5common.css" rel="stylesheet" type="text/css" />
+    <!-- endbuild-->
+    <!-- build:css({app, .tmp}) styles/sf.b2c.h5.indexNataral.css -->
+    <link rel="stylesheet" href="static/css/need.css">
+    <!-- endbuild -->
+    <script>
+        if (window.screen.width < 640) {
+            var ratio = window.screen.width / 640;
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=640, initial-scale=' + ratio + ', maximum-scale=' + ratio + '');
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+	<div class="sf-b2c-mall-newRecommend">
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
+		  <symbol id="icon-fire" viewBox="0 0 10 12">
+		          <title>blackfire</title><path d="M7.95 3.594l-.164-.128c-.194-.15-.487-.093-.594.124-.052.105-.09 1.172-.09 1.352 0 .036-.006.096-.005.102 0 .15-.14.272-.303.246-.127-.02-.214-.137-.215-.26C6.57 3.203 5.993 1.93 4.934.98 4.287.402 3.52-.112 3.287.29c-.06.1.04.33.14.624.22.655-.456 1.7-1.41 2.744C1.116 4.638 0 5.86 0 7.66c0 1.763 1.257 3.41 2.946 4.177.152.07.298-.113.19-.237-.37-.43-.583-.99-.553-1.6.06-1.18 1.065-2.15 2.287-2.204 1.38-.06 2.518 1 2.518 2.32 0 .563-.21 1.08-.555 1.48-.11.128.033.312.187.242 1.69-.767 2.948-2.414 2.948-4.177 0-1.53-.755-3.05-2.018-4.066z" fill-rule="evenodd"></path>
+		  </symbol>
+		  <symbol id="icon-octopus" viewBox="0 0 78 98">
+		        <title>octopus</title><defs><path id="asa" d="M0 .057h67.896V78H0"></path></defs><g fill="none" fill-rule="evenodd"><ellipse fill="#CCC" cx="39" cy="93" rx="39" ry="5"></ellipse><g transform="translate(5)"><path d="M17.456 37.73c0 1.86-1.512 3.366-3.377 3.366-1.867 0-3.38-1.507-3.38-3.366 0-1.86 1.513-3.366 3.38-3.366 1.864 0 3.376 1.506 3.376 3.366M57.296 37.73c0 1.86-1.512 3.366-3.378 3.366-1.865 0-3.377-1.507-3.377-3.366 0-1.86 1.513-3.366 3.378-3.366 1.866 0 3.378 1.506 3.378 3.366M49.7 77.985c-2.758 0-5.002-2.237-5.002-4.986V64.17c0-.703.572-1.274 1.277-1.274s1.278.57 1.278 1.274V73c0 1.344 1.098 2.44 2.448 2.44 1.35 0 2.45-1.096 2.45-2.44 0-.705.572-1.275 1.278-1.275.705 0 1.277.57 1.277 1.274 0 2.748-2.245 4.985-5.004 4.985M29.938 78c-.705 0-1.278-.568-1.278-1.272V66.33c0-.703.573-1.273 1.278-1.273.705 0 1.278.57 1.278 1.274V76.73c0 .704-.573 1.272-1.278 1.272M37.957 78c-.705 0-1.278-.568-1.278-1.272V66.33c0-.703.572-1.273 1.277-1.273s1.277.57 1.277 1.274V76.73c0 .704-.572 1.272-1.277 1.272M18.322 77.985c-2.69 0-4.875-2.18-4.875-4.858 0-.704.572-1.274 1.277-1.274S16 72.423 16 73.127c0 1.274 1.042 2.312 2.322 2.312s2.322-1.04 2.322-2.313v-8.955c0-.703.572-1.273 1.276-1.273.706 0 1.278.57 1.278 1.272v8.955c0 2.678-2.188 4.858-4.876 4.858" fill="#CCC"></path><mask id="asb" fill="#fff"><use xlink:href="#asa"></use></mask><path d="M45.504 62.99c12.05-4.758 19.837-16.18 19.837-29.1 0-17.25-14.08-31.287-31.392-31.287-17.31 0-31.393 14.036-31.393 31.287 0 12.92 7.786 24.342 19.836 29.098l-.94 2.367c-6.256-2.468-11.593-6.7-15.436-12.233C2.08 47.456 0 40.805 0 33.89 0 15.234 15.23.057 33.948.057c18.72 0 33.948 15.177 33.948 33.833 0 6.916-2.08 13.566-6.014 19.232-3.843 5.534-9.18 9.765-15.436 12.234l-.942-2.367z" fill="#CCC" mask="url(#asb)"></path><path d="M22.977 51.904h21.17" stroke="#CCC" stroke-width="3.2"></path></g></g>
+		  </symbol>
+		</svg>
+		<div class="cms-newRecommend">
+			<section class="nataral-tab nataral-tab-scroll nataral-tab-scroll-newRecommend" id="nataral-tab-scroll-newRecommend">
+		   		<section class="nav2 newRecommend-tab newRecommend-tab-scroll">
+					<div class="newRecommend-tab-inner">
+						<div class="newRecommend-tab-item newRecommend-tab-scroll-item">
+							<ul style="width: 175%; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+								<li class="cms-recommend-li active" cms-newrecommend-categoryid="" cms-newrecommend-brandid="">
+									<svg class="icon-fire" width="20" height="24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-fire"></use></svg>
+									全部
+								</li>
+								<li class="cms-recommend-li" cms-newrecommend-categoryid="" cms-newrecommend-brandid="24">24
+								</li>
+								<li class="cms-recommend-li" cms-newrecommend-categoryid="529" cms-newrecommend-brandid="">类目529
+								</li>
+							</ul>
+						</div>
+						<div class="newRecommend-tab-scroll-icon newRecommend-tab-icon" style="display: block;"></div>
+					</div>
+				</section>
+			</section>
+			<ul class="new-goodslist clearfix cms-newrecommend-list">
+			</ul>
+			<div class="nataral-tab-none">
+			  <svg class="icon-octopus" width="156" height="198"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-octopus"></use></svg>
+			  <p>暂无此商品，看看其他吧~</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="version" data-version="{version}"></div>
+
+	<!--# include file="/common/common4center.js.html" -->
+	<!-- build:js-->
+	<!--用以本地映射调试-->
+	<script src="//img0.fengqucdn.com/fqhth5/h5-common-oss/2.0.4/scripts/require.min.js"></script>
+	<script src="//img0.fengqucdn.com/fqhth5/h5-common-oss/2.0.21/scripts/haitao.h5.common.js"></script>
+
+	<!-- endbuild-->
+	<!-- build:js({app, .tmp}) scripts/sf.b2c.mall.h5.page.newRecommend.js -->
+	<script src="scripts/sf.b2c.mall.require.config.js"></script>
+	<script type="text/javascript">
+	    require(['sf.b2c.mall.module.newRecommend']);
+	</script>
+	<!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,8 @@
+.mo-welfare {
+  display: flex;
+}
+
+.mo-welfare li {
+  flex: 1;
+  text-align: center;
+}

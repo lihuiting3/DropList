@@ -1,0 +1,58 @@
+// Auto Generated.  DO NOT EDIT!
+/**
+  * @class yit.api.{{methodName}}
+  * @param  {Object} $
+  * @param  {Object} can
+  * @param  {Object} _
+  * @param  {can.Construct} Comm
+  * @param  {Object} SecurityType
+  * @return {can.Construct}
+  */
+define(
+'yit.api.{{methodName}}',
+[
+  'zepto',
+  'can',
+  'lodash',
+  'yit.framework.comm',
+  'yit.api.security.type'
+],
+function($, can, _, Comm, SecurityType) {
+  'use strict';
+
+  return Comm.extend({
+    api: {
+      COMMON:{
+        _mt: '{{methodName}}',
+        _ts: Date.now(),
+        _aid: 1
+      },
+      HTTP_METHOD: 'post',
+      /**
+      * METHOD_NAME: '{{methodName}}',
+      * SECURITY_TYPE: {{securityType}}.name,
+      **/
+      REQUIRED: {
+        {{#parameterInfoList}}
+        {{#isRequired}}
+        '{{name}}': '{{type}}'{{^last}},{{/last}}
+        {{/isRequired}}
+        {{/parameterInfoList}}
+      },
+      OPTIONAL: {
+        {{#parameterInfoList}}
+        {{^isRequired}}
+        '{{name}}': '{{type}}'{{^last}},{{/last}}
+        {{/isRequired}}
+        {{/parameterInfoList}}
+      },
+      VERIFY:{
+      },
+      ERROR_CODE: {
+        {{#errorCodeList}}
+        '{{code}}': '{{desc}}'{{^last}},{{/last}}
+        {{/errorCodeList}}
+      }
+    }
+  });
+});

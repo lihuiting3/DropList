@@ -1,0 +1,19 @@
+.cms-picture-list{
+    background: #fff;
+    padding-top: 40px;
+}
+.cms-picture-list ul{
+        padding:30px;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+     }
+     .cms-picture-list li{
+        display:inline-block;
+     }
+     .cms-picture-list img{
+        border-radius:8px;
+        width:500px;
+        margin-right:30px;
+     }

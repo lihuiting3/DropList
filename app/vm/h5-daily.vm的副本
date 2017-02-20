@@ -1,0 +1,95 @@
+#if($content&&$content.size()==2)
+    #set($userDefinedDayLine=$content.get(0))
+    #set($spikeList=$content.get(1))
+    #if($spikeList&&$spikeList.size()>0)
+    <div class="seckill-goods com-box-bottom cms-module-fillspike2">
+        #if($!{cms_module_title}&&$!{cms_module_title}!="")
+            <!--标题-->
+            <div class="com-title"><h2>$!{cms_module_title}</h2></div>
+        #end
+        #if(${userDefinedDayLine}&&${userDefinedDayLine.size()}>0)
+            <!--日期自定义-->
+            #if($userDefinedDayLine.get(0).get("html"))
+                $userDefinedDayLine.get(0).get("html")
+            #end
+        #else
+            <!--日期默认-->
+            <ul class="seckill-dates-list">
+                #foreach($groupByDay in $spikeList)
+                    <li class="cms-src-dayline" data-daylinestart="$!{groupByDay.dayLineStart}"
+                        data-daylineend="$!{groupByDay.dayLineEnd}"><a
+                            href="javascript:;">$!{groupByDay.dayLineFrontDesc}</a></li>
+                #end
+            </ul>
+        #end
+        
+        <!--商品*n天-->
+        #foreach($groupByDay in $spikeList)
+            <div class="seckill-dates-box daylinetarget$!{groupByDay.dayLineStart}"
+                 data-daylinestart="$!{groupByDay.dayLineStart}"
+                 data-daylineend="$!{groupByDay.dayLineEnd}" style="display:none">
+                <ul class="seckill-times">
+                    #foreach($groupByHour in $groupByDay.itemGroupByHours)
+                        <li class="cms-src-hourline"
+                            data-parentday="$!{groupByDay.dayLineStart}"
+                            data-hourlinestart="$!{groupByHour.hourLineStart}"
+                            data-hourlineend="$!{groupByHour.hourLineEnd}"
+                            data-spiketime="$!{groupByHour.items.get(0).get("startTime")}"
+                            data-spiketimeend="$!{groupByHour.items.get(0).get("endTime")}"><a
+                                href="javascript:;"><span
+                                class="seckill-times-item">$!{groupByHour.hourLineFrontDesc}</span><span
+                                class="cms-fillspike2-hourlinestatus"></span></a>
+                        </li>
+                    #end
+                </ul>
+                <div class="seckill-count-title">
+                    <h2>距结束还剩</h2>
+                    <span class="com-title-tips">
+                        <span class="com-count-down cms-spike-day">0</span>天
+                        <span class="com-count-down cms-spike-hour">00</span>时
+                        <span class="com-count-down cms-spike-minite">00</span>分
+                        <span class="com-count-down cms-spike-second">00</span>
+                    </span>
+                </div>
+                <!--商品*n场-->
+                #foreach($groupByHour in $groupByDay.itemGroupByHours)
+                    <ul class="seckill-goods-list hourlinetarget$!{groupByDay.dayLineStart}$!{groupByHour.hourLineStart}"
+                        data-hourlinestart="$!{groupByHour.hourLineStart}"
+                        data-hourlineend="$!{groupByDay.dayLineEnd}">
+                        #foreach($item in $groupByHour.items)
+                            <li class="fast-buy-goods cms-src-spikeinfo"
+                                data-itemid="$!{item.get("itemId")}"
+                                data-spiketime="$!{item.get("startTime")}"
+                                data-spiketimeend="$!{item.get("endTime")}"
+                                data-spikeprice="$!{item.get("price")}" cms-total-number="$!{item.get("stock")}">
+                                <a href="$!{item.get("h5link")}" class="fast-buy-link-box">
+                                    <div class="fast-buy-pic">
+                                        <img src="$!{item.get("imgUrl")}@460h" alt="">
+                                    </div>
+                                    <div class="fast-buy-text"><h2 class="ellipsis2">$!{item.get("name")}</h2>
+                                        <div class="fast-buy-fix">
+                                            <div class="fast-buy-price">
+                                                #if($!{item.get("price")}&&$!{item.get("price")}!="")
+                                                    #set($Double = 0.0)
+                                                    #set($String = "")
+                                                    #set($price=$Double.parseDouble($!{item.get("price")})/100)
+                                                    #set($price=$String.format("%.1f", $price).replace(".0",""))
+                                                    <span class="sales-price">¥$!{price}</span>
+                                                #end
+                                                #set($Integer = 0)
+                                                #set($originPrice=$Integer.parseInt($!{item.get("originPrice")})/100)
+                                                <span class="original-price">原价$!{originPrice}</span>
+                                            </div>
+                                            <div class="cms-fillspike2-spikebtn"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        #end
+                    </ul>
+                #end
+            </div>
+        #end
+    </div>
+    #end
+#end

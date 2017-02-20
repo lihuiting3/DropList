@@ -1,0 +1,15 @@
+.cms-bannerlist{
+    background:#fff;
+    padding-top:40px;
+    overflow: hidden;
+}
+.cms-bannerlist ul{
+    margin-top:40px;
+}
+.cms-bannerlist li{
+    margin:20px 30px;
+    border-radius:8px;
+    width:690px;
+    height:260px;
+    overflow: hidden;
+}

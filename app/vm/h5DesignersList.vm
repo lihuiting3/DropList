@@ -1,0 +1,74 @@
+#if($content&&$content.size()==5)
+    #set($s1=$content.get(0))
+    #set($s2=$content.get(1))
+    #set($s3=$content.get(2))
+    #set($s4=$content.get(3))
+    #set($s5=$content.get(4))
+    #if($s1 && $s1.size() > 0)
+    <div class="cms-designer">
+        <div class="tab-title">
+            <h2>
+                <span>
+                  #if($!{cms_module_title} && $!{cms_module_title} != "")
+                    $!{cms_module_title}
+                  #else
+                    设计师列表
+                  #end
+                   </span>
+                <span class="down"></span>
+            </h2>
+        </div>
+        <div class="tab-down">
+            <div class="mask"></div>
+            <div class="tab-content">
+                <div class="tab-title1">
+                    <span>全部设计分类（可多选）</span> <span class="up">收起</span>
+                </div>
+                <ul>
+                    <li class="item all active">全部</li>
+                    #foreach($item in $s5)
+                        <li class="item" data-tag="$!{item.get('subName')}">$!{item.get('name')}</li>
+                    #end
+                </ul>
+            </div>
+        </div>
+        <ul class="designer-list">
+            #foreach($item in $s1)
+            <li class="designer" data-tag="$!{item.get('name')}">
+                #foreach($temp in $s2)
+                    #if($!{temp.tag} == $!{item.get('tag')})
+                        <a href="$!{temp.itemList.get(0).get('h5link')}">
+                            <img class="lazyload" data-echo="$!{temp.itemList.get(0).get('imgUrl')}?imageView2/0/w/750" src="http://imgcms.yit.com/h5/images/spacer.gif">
+                         </a>
+                    #end
+                #end
+                #foreach($temp in $s3)
+                    #if($!{temp.tag} == $item.get('tag'))
+                        #set($more=$!{temp.itemList.get(0).get('h5link')})
+                        <a href="$!{more}">
+                            <div class="brand-name ellipsis">$!{temp.itemList.get(0).get('name')} <span class="right"></span></div>
+                        </a>
+                    #end
+                #end
+                <ul class="list">
+                    #foreach($temp in $s4)
+                        #if($!{temp.tag} == $item.get('tag'))
+                            #foreach($t in $!{temp.itemList})
+                            <li>
+                                <a href="$!{t.get('h5link')}">
+                                    <img class="brand-item lazyload" data-echo="$!{t.get('imgUrl')}?imageView2/0/w/750" src="http://imgcms.yit.com/h5/images/spacer.gif">
+                                </a>
+                            </li>
+                            #end
+                        #end
+                    #end
+                    <li>
+                        <a href="$!{more}"><img class="brand-item" src="http://imgcms.test.yit.com/cmsres/20170208/cf351c81-f67f-4a63-9232-7e7e3bf780e7.png"></a>
+                    </li>
+                </ul>
+            </li>
+            #end
+        </ul>
+    </div>
+    #end
+#end

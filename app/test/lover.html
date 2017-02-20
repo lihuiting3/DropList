@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+    	body img{
+    		background:#d8d8d8;
+    	}
+    </style>
+</head>
+<body>
+	<!-- -->
+	<style>
+		.cms-lover{
+			background:#fff1f5;
+			line-height: 1;
+		}
+		.cms-lover .content{
+			padding:24px 66px;
+			text-align: center;
+		}
+		.cms-lover .subtitle{
+			margin-bottom:30px;
+			font-size: 30px;
+			color:#fc618b;
+			display: inline-block;
+		}
+		.cms-lover .line{
+			font-size: 28px;
+		}
+		.cms-lover .price{
+			font-weight: bold;
+			margin-bottom:24px; 
+			font-size: 40px;
+		}
+		.cms-lover .title{
+			font-size: 28px;
+			color:#4a302d;
+		}
+		.cms-lover .heart{
+			background:url(http://imgcms.test.yit.com/cmsres/20170209/d632154a-37e7-41f9-95a1-0477501acfc1.png) no-repeat;
+			background-size: 30px auto;
+			width:30px;
+			height:25px;
+			display: inline-block;
+			margin-top:30px;
+			margin-bottom: 20px;
+		}
+		.cms-lover .br{
+			width:80px;
+			height:80px;
+			line-height: 80px;
+			font-size: 36px;
+			color:#fc618b;
+			border:solid 1px #eec2ce;
+			border-radius:6px;
+			margin-right:15px;
+			outline: none;
+			box-shadow: none;  
+			text-align: center;
+			display: inline-block;
+			float:left;
+		}
+		.cms-lover .first{
+			margin-left:110px;
+		}
+		.cms-lover .fourth{
+			margin-right:0;
+		}
+		.cms-lover .br.active{
+			border:solid 2px #fc618b;
+		}
+		.cms-lover input{
+			height: 1px;
+		    overflow: hidden;
+		    padding: 0;
+		    border: none;
+		    background-color: transparent;
+		    color: #fff1f5;
+		    position: absolute;
+		    top: 0;
+		    font-size: 1px;
+		    height: 80px;
+		    left: 110px;
+		    width: 365px;
+		}
+		.cms-lover input:focus{
+			outline: none;
+		}
+		.cms-lover .number-container{
+			position:relative;
+			overflow: hidden;
+		}
+		.cms-lover .button{
+			width:220px;
+			height:70px;
+			color:#fff;
+			font-size:30px;
+			line-height: 70px;
+			border-radius:6px;
+			background:#fd8eac;
+			display: inline-block;
+			margin-top:30px;
+			margin-bottom:20px;
+		}
+		.cms-lover .info{
+			color:#4a302d;
+			font-size: 20px;
+			display: inline-block;
+		}
+		.cms-lover .sys, .cms-lover .productinfo{
+			padding-top:20px;
+		}
+		.cms-lover .self, .cms-lover .sys, .cms-lover .productinfo{
+			border-bottom: 1px dashed #fd8eac;
+			padding-bottom:60px;
+		}
+		.cms-lover ol{
+			font-size: 22px;
+			color:#4a302d;
+			line-height: 30px;
+			text-align: left;
+			padding-bottom:100px;
+		}
+		.cms-lover li{
+			margin-bottom:20px;
+		}
+
+		.cms-lover .nextinfo{
+			background: #fff;
+			text-align: center;
+			z-index: 999;
+			display: none;
+		}
+		.cms-lover .mask{
+			position:fixed;
+			top:0;
+			width:100%;
+			height:100%;
+			left:0;
+			background:#000;
+			opacity: 0.5;
+		}
+		.cms-lover .container{
+			background: #fff;
+			width:630px;
+			position:fixed;
+			top:50%;
+			transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+			margin-left:60px;
+		}
+		.cms-lover .warn-info{
+			margin:20px;
+			border:1px dashed #fd8eac;
+			padding:50px 44px;
+			color:#4a302d;
+			display: none;
+		}
+		.cms-lover .success{
+			text-align: center;
+		}
+		.cms-lover .title1{
+			font-size: 36px;
+			font-weight: bold;
+		}
+		.cms-lover p{
+			font-size: 26px;
+			line-height: 35px;
+			margin-top:40px;
+			text-align: left;
+		}
+		.cms-lover .detail{
+			color:#fc618b;
+		}
+		.cms-lover .close{
+			background: #cfcfcf;
+			margin-left:40px;
+		}
+		.cms-lover .nextinfo .button{
+			margin-bottom: 0px;
+		}
+		.cms-lover .useless{
+			color:#d20028;
+			font-size:22px;
+			width:380px;
+			height:80px;
+			background:#fff;
+			line-height: 80px;
+			margin:0 auto;
+			display: none;
+		}
+		.cms-lover .choice{
+			background: #fde7ed;
+			color:#d20028;
+			font-size: 20px;
+			width:380px;
+			margin:0 auto;
+			padding:24px 30px;
+			overflow: hidden;
+			display: none;
+		}
+		.cms-lover ul{
+			margin-top:30px;
+		}
+		.cms-lover .number{
+			float:left;
+			width:64px;
+			margin-bottom: 15px;
+		}
+		.cms-lover .disabled{
+			color:#ababab;
+			text-decoration: line-through;
+		}
+	</style>
+	<div class="cms-lover">
+		<img src="http://imgcms.test.yit.com/cmsres/20170209/58eae61d-9f5c-48d1-8cec-e970f47909f9.jpeg">
+		<div class="content">
+			<div class="self">
+				<span class="subtitle price">¥ 1314</span><br/>
+				<span class="title">ZIPPO 情人节特别定制款猫王收音机</span><br/>
+				<span class="heart"></span><br/>
+				<span class="subtitle line">／</span><span class="subtitle"> 自选号 </span><span class="subtitle line">／</span>
+				<!-- <div>
+					<input class="br first" type="number" maxlength="1">
+					<input class="br second" type="number" maxlength="1">
+					<input class="br third" type="number" maxlength="1">
+					<input class="br fourth" type="number" maxlength="1">
+				</div> -->
+				<div class="number-container">
+					<span class="br first"></span>
+					<span class="br second"></span>
+					<span class="br third"></span>
+					<span class="br fourth"></span>
+					<input class="self-number" type="number" maxlength='4'>
+				</div>
+				<div class="useless">没有可选号码 ,请选择其他号码！</div>
+				<div class="choice">
+					建议您输入以下号码，灰色为不可选
+					<ul>
+						<li class="number disabled">0</li>
+						<li class="number disabled">1</li>
+						<li class="number disabled">2</li>
+						<li class="number disabled">3</li>
+						<li class="number disabled">4</li>
+						<li class="number disabled">5</li>
+						<li class="number disabled">6</li>
+						<li class="number disabled">7</li>
+						<li class="number disabled">8</li>
+						<li class="number disabled">9</li>
+					</ul>
+				</div>
+				<span class="button">我要选号</span><br/>
+				<span class="info">（ 选号区间为 0001-1314 ）</span>
+			</div>
+			<div class="sys">
+				<span class="heart"></span><br/>
+				<span class="subtitle line">／</span><span class="subtitle"> 随机选号 </span><span class="subtitle line">／</span><br/>
+				<div class="button active">直接购买</div>
+			</div>
+			<div class="productinfo">
+				<span class="heart"></span><br/>
+				<span class="subtitle line">／</span><span class="subtitle"> 产品展示 </span><span class="subtitle line">／</span><br/>
+				<img src="http://imgcms.test.yit.com/cmsres/20170209/a7ed55be-4544-4ce0-b410-262fc3d06c6b.jpeg">
+			</div>
+			<div class="rule">
+				<span class="heart"></span><br/>
+				<span class="subtitle line">／</span><span class="subtitle"> 活动规则 </span><span class="subtitle line">／</span>
+				<ol>
+					<li>
+						活动时间：2017年2月14日10:00起至活动商品售完为止，2017年5月20日起发货。
+					</li>
+					<li>
+						本次活动产品为套装，内含粉色ZIPPO猫王定制版打火机一枚，粉色猫王小王子OTR音箱一台，限量1314套，打火机和音箱的机身上都有同样且唯一的编号。
+					</li>
+					<li>商品中国大陆地区包邮，港澳台地区除外。</li>
+					<li>您可挑选自己喜欢的号码购买，选号范围：0001 至 1314。您也可以购买随机号码套装。</li>
+					<li>产品展示图为效果图，请以实物为准。</li>
+					<li>如有质量问题可7天内退货，15天内换货，色差不属于质量问题。非质量问题不接受7天无理由退货。</li>
+					<li>本次活动最终解释权归上海一条网络科技有限公司。</li>
+				</ol>
+			</div>
+		</div>
+		<div class="nextinfo">
+			<div class="mask"></div>
+			<div class="container">
+				<div class="warn-info soldout">
+					<span class="title1">已售完</span>
+					<p>抱歉，商品太过火爆，所有号码都售罄了，敬请谅解！</p>
+					<span class="button">我知道了</span>
+				</div>
+				<!-- <div class="warn-info success"> -->
+				<!-- 	<span class="title1">立即购买</span>
+					<p>
+						恭喜您！选号成功！请尽快购买！<br>
+						您选的号码是：<span class="detail">0002</span>
+					</p>
+					<span class="button">立即购买</span>
+				</div> -->
+				<div class="warn-info fail">
+					<span class="title1"> 对不起</span>
+					<p>抱歉，您选的号码不可售，请选择其他号码。</p>
+					<span class="button">重新选择</span>
+					<span class="button close">关闭</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
