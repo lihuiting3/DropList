@@ -106,20 +106,20 @@
         </div>
     </div>
 	<script>
-		 $(document).ready(function(){
-            var appDownload; 
-            if(window.sessionStorage){
-                appDownload = sessionStorage.getItem("appDownload");
-                if(window.location.hostname  == "h5.yit.com" && !appDownload){
-                    $(".app-download").css("display", "block");
-                }
-            }
-            $(".close").click(function(){
-                $(".app-download").css("display", "none");
-                sessionStorage.setItem("appDownload", "hide");
-                appDownload = "hide";
-            });
-        });
+		 // $(document).ready(function(){
+   //          var appDownload; 
+   //          if(window.sessionStorage){
+   //              appDownload = sessionStorage.getItem("appDownload");
+   //              if(window.location.hostname  == "h5.yit.com" && !appDownload){
+   //                  $(".app-download").css("display", "block");
+   //              }
+   //          }
+   //          $(".close").click(function(){
+   //              $(".app-download").css("display", "none");
+   //              sessionStorage.setItem("appDownload", "hide");
+   //              appDownload = "hide";
+   //          });
+   //      });
 		
 	</script>
 
@@ -367,18 +367,45 @@
 			line-height:24px;
 		}
 		.cms-designer .tab-title{
+			background:#f4f4f4;
+			height:119px;
+			padding-left:22px;
+		}
+		.cms-designer .header{
+			font-size: 32px;
+			color:#9b9b9b;
+			line-height: 119px;
+		} 
+		.cms-designer .left{
+			float:left;
+		}
+		.cms-designer .selected li{
+			background:#333333;
+			border-radius:8px;
+			width:100px;
+			height:50px;
+			margin-top:35px;
+			font-size: 28px;
+			color:#fff;
+			line-height: 50px;
 			text-align: center;
-			margin-top:40px;
 		}
 		.cms-designer .down{
-			background: url(down.png) no-repeat;
-		    line-height: 30px;
-		    width: 22px;
-		    height: 22px;
-		    display: inline-block;
-		    background-size: 22px auto;
-		    margin-left: 19px;
-		    vertical-align: -6px;
+			float:right;
+			margin-right:33px;
+			padding-right:30px;
+			position:relative;
+		}
+		.cms-designer .down::after{
+			content:" ";
+			position:absolute;
+			border-top:2px solid #979797;
+			border-right:2px solid #979797;
+			width: 21px;
+		    height: 21px;
+		    right: 0;
+		    top: 48px;
+		    transform: rotate(45deg);
 		}
 		.cms-designer .designer-list{
 			margin-top:38px;
@@ -387,29 +414,38 @@
 			margin-bottom:30px;
 			background: #fff;
 		}
+		.cms-designer .special{
+			margin-bottom:0;
+		}
 		.cms-designer .banner{
 			width:750px;
 			height:330px;
 		}
 		.cms-designer .brand-name{
-			padding:20px 22px 25px;
+			font-size:38px;
+			color:#000000;
+			line-height:38px;
+			text-align:center;
+			margin-top:50px;
 		}
-		.cms-designer .right{
-			background: url(right.png) no-repeat;
-		    width: 15px;
-		    height: 15px;
-		    background-size: auto 15px;
-		    display: inline-block;
-		    float: right;
-		    line-height: 20px;
-		    margin-top: 4px;
+		.cms-designer .brand-subname{
+			font-size:22px;
+			color:#9b9b9b;
+			line-height:22px;
+			text-align:center;
+			margin-top:10px;
+		}
+		.cms-designer .special .brand-subname{
+			padding-bottom:60px;
 		}
 		.cms-designer .list{
+			margin-top:80px;
 			white-space: nowrap;
 			overflow-x:auto;
 			padding:0 22px 25px;
 			-webkit-overflow-scrolling: touch;
 		}
+
 		.cms-designer .list li{
 			display:inline-block;
 		}
@@ -450,14 +486,36 @@
 			background:#f9f9f9;
 		}
 		.cms-designer .up{
-			float: right;
+			/*float: right;
 		    display: inline-block;
 		    margin-right: 20px;
 		    width: 93px;
 		    background: url(up.png) no-repeat;
 		    background-position: 70px 5px;
 		    background-size: 20px auto;
-		    color:#999;
+		    color:#999;*/
+		    padding:0 30px 30px 26px;
+		}
+		.cms-designer .up div{
+			border-top: 2px solid #979797;
+		    padding-top: 26px;
+		    text-align: center;
+		}
+		.cms-designer .up-content{
+			display:inline-block;
+			font-size:32px;
+			color:#999999;
+		}
+		.cms-designer .up-content::after{
+			content: " ";
+		    border-top: 2px solid #979797;
+		    border-right: 2px solid #979797;
+		    transform: rotate(-45deg);
+		    display: inline-block;
+		    width: 16px;
+		    height: 16px;
+		    margin-left: 16px;
+		    vertical-align: -2px;
 		}
 		.cms-designer .tab-down{
 			display:none;
@@ -487,16 +545,22 @@
 	</style>
 	<div class="cms-designer">
 		<div class="tab-title">
-            <h2>
-            	<span>设计师分类</span>
-            	<span class="down"></span>
-            </h2>
+            <div class="header">
+            	<div class="left">分类：</div>
+            	<ul class="left selected">
+            		<li>全部</li>
+            	</ul>
+            	<div class="left down">
+            		展开查看（33）
+            	</div>
+            </div>
         </div>
         <div class="tab-down">
         	<div class="mask"></div>
         	<div class="tab-content">
 	        	<div class="tab-title1">
-	        		<span>全部设计分类（可多选）</span> <span class="up">收起</span>
+	        		<span>全部设计分类（可多选）</span> 
+	        		<!-- <span class="up">收起</span> -->
 	        	</div>
 	        	<ul>
 	        		<li class="item active">全部</li>
@@ -509,12 +573,18 @@
 	        		<li class="item">服装</li>
 	        		<li class="item">艺术课程</li>
 	        	</ul>
+	        	<div class="up">
+	        		<div>
+	        			<span class="up-content">收起</span>
+	        		</div>
+	        	</div>
         	</div>
         </div>
         <ul class="designer-list">
         	<li class="designer">
-	            <img class="banner" src="http://placehold.it/750x330">
-	        	<div class="brand-name">ZHANG YUHAO设计师同名品牌创立于同名同名品... <span class="right"></span></div>
+	            <img class="banner" src="http://placehold.it/750x380">
+	        	<div class="brand-name">谢霆锋做了个超辣曲奇 </div>
+	        	<div class="brand-subname">说起谢霆锋，很多人首先想到的就是歌手、演员、王菲……</div>
 	        	<ul class="list">
 	        		<li >
 	        			<img class="brand-item" src="http://placehold.it/140x140">
@@ -540,8 +610,9 @@
 	        	</ul>
         	</li>
         	<li class="designer">
-	            <img class="banner" src="http://imgcms.yit.com/h5/images/spacer.gif">
-	        	<div class="brand-name">ZHANG YUHAO设计师同名品牌创立于同名同名品... <span class="right"></span></div>
+	            <img class="banner" src="http://placehold.it/750x380">
+	        	<div class="brand-name">ZHANG YUHAO设计师同名品</div>
+	        	<div class="brand-subname">说起谢霆锋，很多人首先想到的就是歌手、演员、王菲……</div>
 	        	<ul class="list">
 	        		<li >
 	        			<img class="brand-item" src="http://imgcms.yit.com/h5/images/spacer.gif">
@@ -565,6 +636,19 @@
 	        			<img class="more" src="more.png">
 	        		</li>
 	        	</ul>
+        	</li>
+    	</ul>
+
+    	<ul class="designer-list">
+        	<li class="designer special">
+	            <img class="banner" src="http://placehold.it/750x380">
+	        	<div class="brand-name">谢霆锋做了个超辣曲奇 </div>
+	        	<div class="brand-subname">说起谢霆锋，很多人首先想到的就是歌手、演员、王菲……</div>
+        	</li>
+        	<li class="designer special">
+	            <img class="banner" src="http://placehold.it/750x380">
+	        	<div class="brand-name">ZHANG YUHAO设计师同名品</div>
+	        	<div class="brand-subname">说起谢霆锋，很多人首先想到的就是歌手、演员、王菲……</div>
         	</li>
     	</ul>
 	</div>
@@ -720,6 +804,142 @@
         	<li><img src="http://placehold.it/690x260"> </li>
         	<li><img src="http://placehold.it/690x260"> </li>
         </ul>
+	</div>
+
+	<style>
+		.cms-designer-item{
+			
+		}
+		.cms-designer-item li{
+			padding:50px 30px;
+			font-size: 30px;
+			text-align: center;
+			color:#000;
+			background:#fff;
+		}
+		.cms-designer-item img{
+			width:690px;
+			height:517px;
+			margin-top:35px;
+		}
+		.cms-designer-item .item-title{
+			color:#333;
+			line-height: 30px;
+			margin-top:30px;
+			text-align: left;
+		}
+		.cms-designer-item span{
+			display:inline-block;
+		}
+		.cms-designer-item .item-detail{
+			color:#ccc;
+			font-size: 24px;
+			float:right;
+		}
+	</style>
+	<div class="cms-designer-item">
+		<ul>
+			<li>
+				<div>设计师作品</div>
+				<img src="http://placehold.it/690x517">
+				<div class="item-title">
+					<span>京极夏彦中篇套装</span>
+					<span class="item-detail">查看详情</span>
+				</div>
+			</li>
+    	</ul>
+	</div>
+
+	<style>
+		.cms-pic-three{
+			display: -webkit-box;
+		    display: -moz-box;
+		    display: -ms-flexbox;
+		    display: -webkit-flex;
+			width:100%;
+			-webkit-flex-direction: row;
+		    -ms-flex-direction: row;
+		    flex-direction: row;
+		}
+		.cms-pic-three .row{
+			display: -webkit-box;
+		    display: -moz-box;
+		    display: -ms-flexbox;
+		    display: -webkit-flex;
+			-webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		    flex-direction: column;
+		}
+	</style>
+	<div class="cms-pic-three">
+		<div>
+			<img src="http://imgcms.test.yit.com/cmsres/20170303/3f942bea-39b5-4a73-9909-38bf5b2e8df5.png" />
+		</div>
+		<div class="row">
+			<img src="http://imgcms.test.yit.com/cmsres/20170303/8719e399-4d31-4522-9211-f2e686d93984.png" />
+			<img src="http://imgcms.test.yit.com/cmsres/20170303/8719e399-4d31-4522-9211-f2e686d93984.png" />
+		</div>
+	</div>
+
+	<style>
+		.cms-pic-each{
+			display: -webkit-box;
+		    display: -moz-box;
+		    display: -ms-flexbox;
+		    display: -webkit-flex;
+			-webkit-flex-direction: row;
+		    -ms-flex-direction: row;
+		    flex-direction: row;
+			-webkit-align-items:stretch;
+			-ms-align-items:stretch;
+			align-items:stretch;
+		}
+		.cms-pic-each a{
+			flex:1;
+		}
+		
+	</style>
+	<div class="cms-pic-each">
+		<a href="">
+			<img src="http://imgcms.test.yit.com/cmsres/20170303/3f942bea-39b5-4a73-9909-38bf5b2e8df5.png">
+		</a>
+		<a href="">
+			<img src="http://imgcms.test.yit.com/cmsres/20170303/3f942bea-39b5-4a73-9909-38bf5b2e8df5.png">
+		</a>
+		<a href="">
+			<img src="http://imgcms.test.yit.com/cmsres/20170303/8719e399-4d31-4522-9211-f2e686d93984.png">
+		</a>
+		
+	</div>
+
+	<style>
+		.cms-threepic1{
+			width:750px;
+			height:500px;
+			overflow: hidden;
+		}
+		.cms-threepic1 .left{
+			width:350px;
+			height:500px;
+			float:left;
+		}
+		.cms-threepic1 .right{
+			width:400px;
+			height:500px;
+			display:flex;
+			flex-direction: column;
+		}
+		.cms-threepic1 .right div{
+			flex:1;
+		}
+	</style>
+	<div class="cms-threepic1">
+		<div class="left"></div>
+		<div class="right">
+			<div></div>
+			<div></div>
+		</div>
+		
 	</div>
 </body>
 </html>

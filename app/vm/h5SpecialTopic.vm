@@ -1,0 +1,54 @@
+#if($content&&$content.size()==3)
+    #set($s1=$content.get(0))
+    #set($s2=$content.get(1))
+    #set($s3=$content.get(2))
+    #if($s1 && $s1.size() > 0)
+    <div class="cms-designer">
+        <div class="tab-title">
+            <div class="tabheader">
+                <div class="left">分类：</div>
+                <ul class="left selected">
+                    <li>全部</li>
+                </ul>
+                <div class="left down">
+                    展开查看（$s4.size()）
+                </div>
+            </div>
+        </div>
+        <div class="tab-down">
+            <div class="mask"></div>
+            <div class="tab-content">
+                <div class="tab-title1">
+                    <span>分类（可多选）</span> 
+                </div>
+                <ul>
+                    <li class="item all active">全部</li>
+                    #foreach($item in $s4)
+                        <li class="item" data-tag="$!{item.get('subName')}">$!{item.get('name')}</li>
+                    #end
+                </ul>
+                <div class="up">
+                    <div>
+                        <span class="up-content">收起</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="designer-list" cms-has-more="#if($s2.size() < 20)false#else true#end">
+            #foreach($item in $s1)
+            <li class="designer special" data-tag="$!{item.get('name')}">
+                #foreach($temp in $s2)
+                    #if($!{temp.tag} == $!{item.get('tag')})
+                        <a href="$!{temp.itemList.get(0).get('h5link')}">
+                            <img class="lazyload banner" data-echo="$!{temp.itemList.get(0).get('imgUrl')}?imageView2/0/w/750" src="http://imgcms.yit.com/h5/images/spacer.gif">
+                            <div class="brand-name">$!{temp.itemList.get(0).get('name')} </div>
+                            <div class="brand-subname">$!{temp.itemList.get(0).get('subName')}</div>
+                         </a>
+                    #end
+                #end
+            </li>
+            #end
+        </ul>
+    </div>
+    #end
+#end

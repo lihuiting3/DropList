@@ -1,0 +1,35 @@
+.cms-designer-item{
+	
+}
+.cms-designer-item li{
+	padding:50px 30px;
+	background:#fff;
+}
+.cms-designer-item .item-name{
+	font-size: 30px;
+	text-align: center;
+	color:#000;
+}
+.cms-designer-item img{
+	width:690px;
+	height:517px;
+	margin-top:35px;
+}
+.cms-designer-item .item-title{
+	overflow: hidden;
+	margin-top:30px;
+}
+.cms-designer-item span{
+	display:inline-block;
+	color:#333;
+	line-height: 30px;
+	font-size: 30px;
+}
+.cms-designer-item .item-sub{
+	width:590px;
+}
+.cms-designer-item .item-detail{
+	color:#ccc;
+	font-size: 24px;
+	float:right;
+}

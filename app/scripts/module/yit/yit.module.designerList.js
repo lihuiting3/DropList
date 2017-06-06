@@ -9,7 +9,7 @@ define(
   ],
   function(can, $, Fastclick, _, SFConfig, SFFrameworkComm) {
     Fastclick.attach(document.body);
-    SFFrameworkComm.register(3);
+    SFFrameworkComm.register(1);
 
     var desigerModule = can.Control.extend({
 

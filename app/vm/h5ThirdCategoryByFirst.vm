@@ -1,0 +1,39 @@
+#if($content&&$content.size()==1)
+    #set($submodule1=$content.get(0))
+    #if($submodule1 && $submodule1.size() > 0)
+        #set($children=$!{submodule1.get(0).items})
+        #if($!{children} != "" && $!{children.size()} > 0)
+        <div class="cms-nav nav-container">
+            <nav class="nav nav-box">
+                <ul class="nav-list">
+                    #foreach($item in $children)
+                        <li class="cms-firstc" cms-catagory='$!{item.fcategoryId}'>$!{item.title}</li>
+                    #end
+                </ul>
+            </nav>
+        </div>
+        #foreach($item in $children)
+            <div class="cms-box" cms-catagory='$!{item.fcategoryId}'>
+                <div class="cms-two">
+                    <ul>
+                        #set($products=$item.products)
+                        #foreach($itemt in $products)
+                        <li>
+                            <a href="$!{itemt.get('h5link')}">
+                            <img class="lazyload" data-echo="$!{itemt.get('imgUrl')}?imageView2/0/w/360" src="http://imgcms.yit.com/h5/images/spacer.gif" alt="">
+                            <div class="name ellipsis">$!{itemt.get("name")}</div>
+                            <div class="name ellipsis">$!{itemt.get("thirdName")}</div>
+                            <div class="subname ellipsis2">$!{itemt.get("subName")}</div>
+                            <div class="rprice">
+                                ¥<span class="cms-fill-price">$!{itemt.get("salePrice")}</span>
+                            </div>
+                            </a>
+                        </li>
+                        #end
+                    </ul>
+                </div>
+            </div>
+        #end
+        #end
+    #end
+#end

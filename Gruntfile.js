@@ -631,6 +631,81 @@ module.exports = function(grunt) {
           insertRequire: ['yit.module.valentine']
         }
       },
+
+      valentin: {
+        options: {
+          optimize: 'none',
+          preserveLicenseComments: false,
+          baseUrl: './app/',
+          out: './<%= config.tmp %>/concat/scripts/yit.module.common.api.js',
+          mainConfigFile: "./<%= config.app %>/scripts/sf.b2c.mall.require.config.js",
+          paths: {
+            // 'sf.b2c.mall.business.config': 'scripts/config/sf.b2c.mall.business.<%= config.target %>.config'
+          },
+          include: ["yit.module.common.api"],
+          insertRequire: ['yit.module.common.api']
+        }
+      },
+      
+      searchbar: {
+        options: {
+          optimize: 'none',
+          preserveLicenseComments: false,
+          baseUrl: './app/',
+          out: './<%= config.tmp %>/concat/scripts/yit.module.searchbar.js',
+          mainConfigFile: "./<%= config.app %>/scripts/sf.b2c.mall.require.config.js",
+          paths: {
+            // 'sf.b2c.mall.business.config': 'scripts/config/sf.b2c.mall.business.<%= config.target %>.config'
+          },
+          include: ["yit.module.searchbar"],
+          insertRequire: ['yit.module.searchbar']
+        }
+      },
+
+      coupon: {
+        options: {
+          optimize: 'none',
+          preserveLicenseComments: false,
+          baseUrl: './app/',
+          out: './<%= config.tmp %>/concat/scripts/yit.module.coupon.js',
+          mainConfigFile: "./<%= config.app %>/scripts/sf.b2c.mall.require.config.js",
+          paths: {
+            // 'sf.b2c.mall.business.config': 'scripts/config/sf.b2c.mall.business.<%= config.target %>.config'
+          },
+          include: ["yit.module.coupon"],
+          insertRequire: ['yit.module.coupon']
+        }
+      },
+
+      index: {
+        options: {
+          optimize: 'none',
+          preserveLicenseComments: false,
+          baseUrl: './app/',
+          out: './<%= config.tmp %>/concat/scripts/yit.module.index.js',
+          mainConfigFile: "./<%= config.app %>/scripts/sf.b2c.mall.require.config.js",
+          paths: {
+            // 'sf.b2c.mall.business.config': 'scripts/config/sf.b2c.mall.business.<%= config.target %>.config'
+          },
+          include: ["yit.module.index"],
+          insertRequire: ['yit.module.index']
+        }
+      },
+
+      threeCategory: {
+        options: {
+          optimize: 'none',
+          preserveLicenseComments: false,
+          baseUrl: './app/',
+          out: './<%= config.tmp %>/concat/scripts/yit.module.ThirdCategoryByFirst.js',
+          mainConfigFile: "./<%= config.app %>/scripts/sf.b2c.mall.require.config.js",
+          paths: {
+            // 'sf.b2c.mall.business.config': 'scripts/config/sf.b2c.mall.business.<%= config.target %>.config'
+          },
+          include: ["yit.module.ThirdCategoryByFirst"],
+          insertRequire: ['yit.module.ThirdCategoryByFirst']
+        }
+      },
     }
   });
 

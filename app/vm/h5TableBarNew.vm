@@ -1,0 +1,19 @@
+#if($content&&$content.size()==1)
+    #set($submodule1=$content.get(0))
+    <div id="nav-icon-list-bottom">
+      <div style="height:94px"></div>
+        <div class="footer-fixed-bt">
+          <div class="footer-nav" id="footer-nav">
+            <a href="/index.html" class="footer-nav-item active"><span class="icon icon-pre"></span>精选</a>
+            #if($submodule1 && $submodule1.size() > 0)
+            #set($item = $submodule1.get(0))
+            <a href="$!{item.get('h5link')}" class="footer-nav-item"><span class="icon icon-type" style="background-size:32px 44px;background-position:0 0;background-image:url($!{item.get('imgUrl')});"></span>$!{item.get('name')}</a>
+            #else
+            <a href="/classify.html" class="footer-nav-item"><span class="icon icon-type"></span>发现</a>
+            #end
+            <a href="/shopping.html" class="footer-nav-item islogin"><span class="icon icon-bag"><!-- <span class="num" id="carNum"></span> --></span>购物袋</a>
+            <a href="/center.html" class="footer-nav-item islogin"><span class="icon icon-user"></span>我的</a>
+          </div>
+        </div>  
+    </div>
+#end

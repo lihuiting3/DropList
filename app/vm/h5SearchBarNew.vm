@@ -1,0 +1,10 @@
+<div style="width:750px;height:80px;"></div>
+<div class="cms-search">
+    <form id="searchfm">
+    <span class="search-iconp"></span>
+    <input type="text" class="searchwords" placeholder="搜索一万件好东西" />
+    <a class="cart"><img src="http://imgcms.yit.com/cmsres/20170504/4c241b34-baa8-46c8-9e1a-1fd1aab9d933.png"></a>
+    <div class="cartnumber">9</div>
+    <div class="searchclear"></div>
+    </form>
+</div>

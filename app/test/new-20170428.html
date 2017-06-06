@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+    	body img{
+    		background:#d8d8d8;
+    	}
+    </style>
+</head>
+<body>
+	<!-- -->
+	<style>
+		.cms-search{
+			padding:20px 0px 0 24px;
+			width:750px;
+			background:#ffffff;
+			height:80px;
+			position:relative;
+		}
+		.cms-search .searchwords{
+			background:#f3f5f5;
+			border-radius:30px;
+			width:627px;
+			height:60px;
+			font-size:24px;
+			color:#999999;
+			letter-spacing:1px;
+			line-height:60px;
+			text-align:left;
+			-webkit-appearance: none;
+    		-moz-appearance: none;
+    		text-align: center;
+    		display:inline-block;
+    		border:none;
+    		outline: none;
+    		float:left;
+    		/*padding-top: 2px;*/
+		}
+		.cms-search .cart{
+			display:inline-block;
+			background:#fff;
+			margin-left:15px;
+		}
+		.cms-search .cart img{
+			background:#fff;
+		}
+		.cms-search .search-iconp{
+			position:absolute;
+			left:220px;
+			top:48px;
+			display:inline-block;
+			height:24px;
+		}
+		.cms-search .search-iconp:before{
+		    -webkit-transform: translate(-50%, -50%);
+		    -ms-transform: translate(-50%, -50%);
+		    transform: translate(-50%, -50%);
+		    content: " ";
+		    border: 2px solid #999;
+		    height: 20px;
+		    width: 20px;
+		    -webkit-border-radius: 50%;
+		    border-radius: 50%;
+		    margin-left: -5px;
+		    margin-top: -3px;
+		    display: inline-block;
+		}
+		.cms-search .search-iconp:after{
+			content: " ";
+			background: #999;
+		    height: 12px;
+		    width: 2px;
+		    margin-top: 10px;
+		    margin-left: -13px;
+		    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+		    -ms-transform: translate(-50%, -50%) rotate(-45deg);
+		    transform: translate(-50%, -50%) rotate(-45deg);
+		    display: inline-block;
+		}
+		.focus .searchwords{
+			text-align:left;
+			padding-left:60px;
+			left:60px;
+		}
+		.focus .search-iconp{
+			left:59px;
+		}
+		.cms-search .cartnumber{
+		    position: absolute;
+		    top: 22px;
+		    left: 695px;
+		    font-size: 20px;
+		    color: #ffffff;
+		    line-height: 24px;
+		    text-align: center;
+		    background: #ad0e11;
+		    border: 1px solid #ffffff;
+		    height: 24px;
+		    border-radius: 15px;
+		    padding: 0 6px;
+		}
+	</style>
+	<div class="cms-search">
+		<form id="searchfm">
+		<span class="search-iconp"></span>
+		<input type="text" class="searchwords" placeholder="搜索一万件好东西" />
+		<a class="cart"><img src="http://imgcms.yit.com/cmsres/20170504/4c241b34-baa8-46c8-9e1a-1fd1aab9d933.png"></a>
+		<div class="cartnumber">99+</div>
+		</form>
+	</div>
+
+
+	<style>
+		.cms-productslide{
+	background:#ffffff;
+	width:750px;
+	padding-bottom: 30px;
+}
+.cms-productslide .title{
+	font-size:34px;
+	color:#333333;
+	text-align:center;
+	line-height: 114px;
+	height: 114px;
+}
+::-webkit-scrollbar{
+	display:none;
+}
+.cms-productslide ul{
+	list-style: none;
+	margin-left:20px;
+	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+.cms-productslide li{
+	margin-right: 20px;
+	width:320px;
+	display:inline-block;
+}
+.cms-productslide img{
+	width:320px;
+	height:240px;
+}
+.cms-productslide .desc{
+	font-size:28px;
+	color:#333333;
+	line-height:40px;
+	text-align:left;
+	margin-top:20px;
+	width:320px;
+	white-space: normal;
+	height:80px;
+}
+.cms-productslide em{
+	font-size:24px;
+	color:#ad0e11;
+	letter-spacing:0;
+	line-height:26px;
+	text-align:left;
+	float:left;
+}
+.cms-productslide .price{
+	margin-top:15px;
+	font-size: 26px;
+}
+.cms-productslide .rprice{
+	font-size:30px;
+	color:#ad0e11;
+	letter-spacing:0;
+	line-height:26px;
+	text-align:left;
+	margin-left: 4px;
+    vertical-align: top;
+}
+.cms-productslide .real, .cms-productslide .origin{
+	display:inline-block;
+	position: relative;
+    overflow: hidden;
+    height: 26px;
+    margin-left: 4px;
+    vertical-align: top;
+}
+.cms-productslide .origin{
+	margin-left:20px;
+	text-decoration: line-through;
+	line-height: 20px;
+	opacity:0.99;
+	font-size:26px;
+	color:#cccccc;
+	letter-spacing:0;
+	line-height:20px;
+	text-align:left;
+}
+.cms-productslide .origin span{
+	vertical-align: bottom;
+    height: 20px;
+    margin-top: 6px;
+    display: inline-block;
+}
+.cms-productslide .origin em{
+	line-height: 20px;
+	opacity:0.99;
+	font-size:26px;
+	color:#cccccc;
+	letter-spacing:0;
+	line-height:20px;
+	text-align:left;
+	font-size: 20px;
+    vertical-align: bottom;
+    margin-top: 6px;
+    height: 20px;
+    display: inline-block;
+    line-height: 20px;
+}
+	</style>
+	<div class="cms-productslide">
+		<div class="title">特惠</div>
+		<ul>
+			<li>
+				<img src="">
+				<div class="desc ellipsis2">法国巨眼丛书：让孩子看懂世界的第一套科普经典</div>
+				<div class="price">
+					<div class="real">
+						<em>¥</em>
+						<span class="rprice">159</span>
+					</div>
+					<div class="origin">
+						<em>¥</em>
+						<span class="oprice">159</span>
+					</div>
+				</div>
+			</li>
+			<li>
+				<img src="">
+				<div class="desc ellipsis2">法国巨眼丛书：让孩子看懂世界的第一套科普经典</div>
+				<div class="price">
+					<div class="real">
+						<em>¥</em>
+						<span class="rprice">159</span>
+					</div>
+					<div class="origin">
+						<em>¥</em>
+						<span class="oprice">159</span>
+					</div>
+				</div>
+			</li>
+			<li>
+				<img src="">
+				<div class="desc ellipsis2">法国巨眼丛书：让孩子看懂世界的第一套科普经典</div>
+				<div class="price">
+					<div class="real">
+						<em>¥</em>
+						<span class="rprice">159</span>
+					</div>
+					<div class="origin">
+						<em>¥</em>
+						<span class="oprice">159</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+	<style>
+		.cms-fourpic{
+			padding:20px 6px 0;
+			background:#ffffff;
+			width:750px;
+			height:204px;
+			margin-bottom: 2px;
+		}
+		.cms-fourpic a{
+			display: inline-block;
+		}
+		.cms-fourpic img{
+			width:180px;
+			height: 120px;
+		}
+		.cms-fourpic div{
+			font-family:.PingFangSC-Regular;
+			font-size:24px;
+			color:#9b9b9b;
+			text-align:center;
+			line-height: 64px;
+			height: 64px;
+		}
+	</style>
+	<div class="cms-fourpic">
+		<a>
+			<img class="" src="http://placehold.it/180x120">
+			<div class="">少儿读物</div>
+		</a>
+		<a>
+			<img class="" src="http://placehold.it/180x120">
+			<div class="">少儿读物</div>
+		</a>
+		<a>
+			<img class="" src="http://placehold.it/180x120">
+			<div class="">少儿读物</div>
+		</a>
+		<a>
+			<img class="" src="http://placehold.it/180x120">
+			<div class="">少儿读物</div>
+		</a>
+	</div>
+
+
+	<style>
+		.cms-two{
+			width:750px;
+		    padding-left:10px;
+		    margin-bottom:40px;
+		}
+		.cms-two ul{
+			list-style: none;
+			overflow: hidden;
+		}
+		.cms-two li{
+			float:left;
+			margin-right:10px;
+			margin-bottom:40px;
+		}
+		.cms-two .title{
+			font-size:34px;
+			color:#333333;
+			text-align:center;
+			line-height: 114px;
+			height: 114px;
+			text-align: center;
+			padding-right: 10px;
+			width:100%;
+		}
+		.cms-two img{
+			width:360px;
+			height: 360px;
+			margin-bottom:20px;
+		}
+		.cms-two .name{
+			font-size:30px;
+			color:#333333;
+			line-height:44px;
+			text-align:left;
+			margin:0 20px;
+			width:320px;
+		}
+		.cms-two .subname{
+			font-size:24px;
+			color:#999999;
+			letter-spacing:0;
+			line-height:40px;
+			text-align:left;
+			margin:10px 20px 10px;
+			width:320px;
+		}
+		.cms-two .rprice{
+			font-size:34px;
+			color:#ad0e11;
+			letter-spacing:0;
+			line-height:34px;
+			text-align:left;
+			margin-left:20px;
+		}
+		.cms-two em{
+			font-size:26px;
+			color:#ad0e11;
+			line-height:26px;
+		}
+		.cms-two .more{
+			font-size:28px;
+			color:#9b9b9b;
+			text-align:center;
+			padding-top:10px;
+			height:40px;
+		}
+		.cms-two .more span{
+			display:inline-block;
+			line-height: 40px;
+		    height: 40px;
+		    vertical-align: top;
+		}
+		.cms-two .more-icon{
+			border:1px solid #979797;
+			width:37px;
+			height:38px;
+			border-radius:100%;
+			margin-left:40px;
+			
+		}
+		.cms-two .more-icon:after{
+			content: " ";
+			transform:translate(-5px, -3px) rotate(45deg);
+			-webkit-transform:translate(-5px, -3px) rotate(45deg);
+			border-top:1px solid #9b9b9b;
+			border-right:1px solid #9b9b9b;
+			width:15px;
+			height:15px;
+			display: inline-block;
+		}
+	</style>
+	<div class="cms-two">
+		<div class="title">人文历史</div>
+		<ul>
+			<li>
+				<img src="http://placehold.it/360x360">
+				<div class="name ellipsis">哈佛中国史  6册</div>
+				<div class="name ellipsis">哈佛大学出版社镇社之</div>
+				<div class="subname ellipsis2">10年筹备，5年编辑作者均为西方汉学大家</div>
+				<div class="rprice">
+					<em>¥</em> 
+					<span>286</span>
+				</div>
+			</li>
+			<li>
+				<img src="http://placehold.it/360x360">
+				<div class="name ellipsis">哈佛中国史  6册</div>
+				<div class="name ellipsis">哈佛大学出版社镇社之</div>
+				<div class="subname ellipsis2">10年筹备，5年编辑作者均为西方汉学大家</div>
+				<div class="rprice">
+					<em>¥</em> 
+					<span>286</span>
+				</div>
+			</li>
+			<li>
+				<img src="http://placehold.it/360x360">
+				<div class="name ellipsis">哈佛中国史  6册</div>
+				<div class="name ellipsis">哈佛大学出版社镇社之</div>
+				<div class="subname ellipsis2">10年筹备，5年编辑作者均为西方汉学大家</div>
+				<div class="rprice">
+					<em>¥</em> 
+					<span>286</span>
+				</div>
+			</li>
+			<li>
+				<img src="http://placehold.it/360x360">
+				<div class="name ellipsis">哈佛中国史  6册</div>
+				<div class="name ellipsis">哈佛大学出版社镇社之</div>
+				<div class="subname ellipsis2">10年筹备，5年编辑作者均为西方汉学大家</div>
+				<div class="rprice">
+					<em>¥</em> 
+					<span>286</span>
+				</div>
+			</li>
+		</ul>
+		<div class="more">
+			<span>更多人文历史</span>
+			<span class="more-icon"></span>
+		</div>
+	</div>
+</body>
+</html>

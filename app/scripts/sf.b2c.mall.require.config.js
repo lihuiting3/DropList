@@ -30,13 +30,16 @@ requirejs.config({
         "yit.mediav": "http://www.google.com/app/scripts/util/sf.mediav",
         'yit.api.security.type': 'http://www.google.com/app/scripts/util/yit.api.security.type',
 
-
         // "yit.api.coupon.receiveCoupon": "scripts/api/sf.b2c.mall.api.coupon.receiveCoupon",
         "yit.api.seriesSpu.getChildSpuList": "scripts/api/yit.api.seriesSpu.getChildSpuList",
         "yit.api.seriesSpu.getValidChildSpu": "scripts/api/yit.api.seriesSpu.getValidChildSpu",
-        
+        "yit.api.cart.getCartTotalQty":"scripts/api/yit.api.cart.getCartTotalQty",
+        "yit.api.coupon.shouldPopup":"scripts/api/yit.api.coupon.shouldPopup",
+        "yit.api.fcategoryentity.getFCategoryEntityForHomePageById":"scripts/api/yit.api.fcategoryentity.getFCategoryEntityForHomePageById",
+        "yit.api.fcategoryentity.getFCategoryEntityHomePageProducts":"scripts/api/yit.api.fcategoryentity.getFCategoryEntityHomePageProducts",
 
-        "template_exchange_code": "templates/sf.b2c.mall.exchange.code.mustache",
+        "template_yit_thirdcategory": "templates/yit.thirdcategory.mustache",
+        "template_yit_thirdcategoryproducts": "templates/yit.thirdcategoryproducts.mustache",
 
         "swiper": "scripts/vendor/swiper",
         "iscroll": "scripts/vendor/iscroll",
@@ -44,5 +47,10 @@ requirejs.config({
 
         "yit.module.designerList": "scripts/module/yit/yit.module.designerList",
         "yit.module.valentine": "scripts/module/yit/yit.module.valentine",
+        "yit.module.common.api":"scripts/module/yit/yit.module.common.api",
+        "yit.module.searchbar":"scripts/module/yit/yit.module.searchbar",
+        "yit.module.coupon":"scripts/module/yit/yit.module.coupon",
+        "yit.module.index":"scripts/module/yit/yit.module.index",
+        "yit.module.ThirdCategoryByFirst":"scripts/module/yit/yit.module.ThirdCategoryByFirst",
     }
 });

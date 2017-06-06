@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+    	body img{
+    		background:#d8d8d8;
+    	}
+    </style>
+</head>
+<body>
+	<!-- -->
+	<style>
+		.choujiang {
+		    padding: 0px;
+		    text-align: center;
+		}
+
+		.line {
+		    padding-bottom: 45px;
+		    border-bottom: 1px solid #c62227;
+		}
+
+		a.switch-user {
+		    background-color: transparent;
+		    font-size: 30px;
+		    color: #c62227;
+		    padding-top: 40px;
+		    display: block;
+		    text-decoration: underline;
+		}
+
+		a.expired-nologin {
+		    background-color: transparent;
+		    font-size: 30px;
+		    color: #c62227;
+		    padding-top: 40px;
+		    display: block;
+		    text-decoration: underline;
+		}
+
+		.choujiang tr {
+		    text-align: left;
+		    vertical-align: top;
+		}
+
+		.expired .title1 {
+		    font-size: 34px;
+		    line-height: 44px;
+		}
+
+		.expired .title2 {
+		    font-size: 30px;
+		    line-height: 40px;
+		}
+
+		.expired .about {
+		    margin: 45px auto;
+		    width: 318px;
+		    font-size: 24px;
+		    line-height: 30px;
+		}
+
+		.expired .about img {
+		    margin-bottom: 20px;
+		}
+
+		.reward-more {
+		    dispaly: block;
+		    font-size: 30px;
+		    line-height: 2;
+		    margin-top: 36px;
+		    color: #c62227;
+		}
+
+		.choujiang .reward-top {
+		    height: 32px;
+		}
+
+		.choujiang .reward-top:after {
+		    content: " ";
+		    display: block;
+		    margin: 0 auto;
+		    height: 0;
+		    width: 0px;
+		    border-left: 20px solid transparent;
+		    border-right: 20px solid transparent;
+		    border-top: 20px solid #c62227;
+		    margin-bottom: 10px;
+		}
+
+		.choujiang .reward-rule {
+		    color: #c62227;
+		    font-size: 32px;
+		    padding: 36px 0;
+		}
+
+		.choujiang .reward-btn {
+		    background: #d7d7d7;
+		    width: 620px;
+		    color: #fff;
+		    margin: 22px auto 30px;
+		    font-size: 50px;
+		    line-height: 92px;
+		    border-radius: 10px;
+		}
+
+		.choujiang .cms-reward-btn {
+		    background: #c62227;
+		}
+
+		.choujiang .cms-getreward {
+		    background: #c62227;
+		    width: 620px;
+		    color: #fff;
+		    margin: 22px auto 30px;
+		    font-size: 50px;
+		    line-height: 92px;
+		    border-radius: 10px;
+		}
+
+		.choujiang .reward-cicle {
+		    color: #c62227;
+		    border: 1px solid #c62227;
+		    margin: 10px auto;
+		}
+
+		.choujiang .reward-big {
+		    width: 40px;
+		    height: 40px;
+		    border-radius: 40px;
+		    margin-bottom: 20px;
+		    visibility: hidden
+		}
+
+		.choujiang .reward-small {
+		    width: 30px;
+		    height: 30px;
+		    border-radius: 30px;
+		    margin-bottom: 25px;
+		    visibility: hidden
+		}
+
+		.choujiang .reward-desc {
+		    dispaly: block;
+		    font-size: 30px;
+		    line-height: 2;
+		    color: #c62227;
+		}
+
+		.choujiang .reward-desc1 {
+		    dispaly: block;
+		    font-size: 40px;
+		}
+
+		.choujiang .reward-container {
+		    position: relative;
+		}
+
+		span.flag {
+		    margin-top: 5px;
+		}
+
+		td span {
+		    line-height: 36px;
+		}
+
+		.choujiang .left-btn {
+		    position: absolute;
+		    left: 0px;
+		    top: 110px;
+		    width: 0;
+		    height: 0;
+		    border-top: 20px solid transparent;
+		    border-right: 20px solid #c62227;
+		    border-bottom: 20px solid transparent;
+		}
+
+		.choujiang .right-btn {
+		    position: absolute;
+		    right: 0px;
+		    top: 110px;
+		    width: 0;
+		    height: 0;
+		    border-top: 20px solid transparent;
+		    border-left: 20px solid #c62227;
+		    border-bottom: 20px solid transparent;
+		}
+
+		.choujiang .reward-list {
+		    margin: 10px 0;
+		    border-bottom: 1px solid #c62227;
+		    list-style: none;
+		    padding-bottom: 36px;
+		    overflow: hidden;
+		    min-height: 90px;
+		    margin: 0 50px;
+		}
+
+		.choujiang .reward-list li {
+		    display: none;
+		}
+
+		.choujiang .reward-list li.reward-selected {
+		    display: block;
+		}
+
+		.choujiang .reward-list span {
+		    width: 50%;
+		    float: left;
+		    font-size: 25px;
+		    line-height: 50px;
+		}
+
+		.choujiang .reward-fail {
+		    margin-top: 20px;
+		    font-size: 40px;
+		    color: #c62227;
+		}
+
+		.choujiang .cms-login {
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    display: none;
+		    background: #fff;
+		    z-index: 9;
+		}
+
+		.choujiang .reward-info {
+		    font-size: 24px;
+		    padding-bottom: 45px;
+		    border-bottom: 1px solid #c62227;
+		    margin: 0 50px;
+		}
+
+		.choujiang .reward-info div {
+		    text-align: left;
+		    line-height: 36px;
+		    margin: 0px;
+		    padding: 0px;
+		}
+
+		.choujiang .reward-info div.reward-title {
+		    color: #c62227;
+		    font-size: 32px;
+		    text-align: center;
+		    padding: 36px 0;
+		}
+
+		.choujiang .reward-info span {
+		    display: inline-block;
+		}
+
+		.choujiang .reward-info .flag {
+		    line-height: 24px;
+		    display: inline-block;
+		    color: #fff;
+		    background: #000;
+		    border-radius: 24px;
+		    width: 24px;
+		    text-align: center;
+		    margin-right: 10px;
+		}
+
+		.choujiang .reward-info .special {
+		    color: #c62227;
+		    text-decoration: underline;
+		}
+
+		.choujiang .alert {
+		    max-width: 500px;
+		    font-size: 36px;
+		    line-height: 50px;
+		    background: #000;
+		    color: #fff;
+		    opacity: .7;
+		    text-align: center;
+		    position: fixed;
+		    z-index: 999;
+		    top: 50%;
+		    left: 50%;
+		    padding: 20px;
+		    transform: translateX(-50%) translateY(-50%);
+		    -webkit-transform: translateX(-50%) translateY(-50%);
+		    border-radius: 10px;
+		    word-break: break-word;
+		    display: none;
+		}
+
+		.choujiang .join,
+		.choujiang .fail,
+		.choujiang .success {
+		    display: none;
+		}
+
+		.choujiang .join {
+		    margin-top: 30px;
+		    width: 700px;
+		    margin: 0 auto;
+		    padding-bottom: 45px;
+		    border-bottom: 1px solid #c62227;
+		}
+
+		.choujiang .join-info {
+		    height: 90px;
+		    line-height: 90px;
+		    margin: 0 auto;
+		    width: 620px;
+		    border－radius: 10px;
+		    border: 1px solid #000;
+		    font-size: 36px;
+		}
+
+		.choujiang .join-title {
+		    color: #d37072;
+		    font-size: 24px;
+		    line-height: 36px;
+		    margin-top: 60px;
+		}
+
+		.choujiang .join .about {
+		    margin: 45px auto;
+		    width: 318px;
+		    font-size: 24px;
+		    line-height: 30px;
+		}
+
+		.choujiang .join .about img {
+		    margin-bottom: 20px;
+		}
+
+		.choujiang .fail {
+		    border-bottom: 1px solid #c62227;
+		    margin: 0 50px;
+		}
+
+		.choujiang .fail p {
+		    font-size: 34px;
+		    line-height: 44px;
+		    margin-bottom: 50px;
+		}
+
+		.choujiang .success p {
+		    font-size: 34px;
+		    line-height: 44px;
+		    color: #d37072;
+		    margin-bottom: 50px;
+		}
+
+		.address_header {
+		    width: 100%;
+		    height: 52px;
+		    background: url(https://imgcms.yit.com/cmsres/20161109/df242e48-c701-4a52-88a2-e07c296c4cf0.jpeg), 0 0, no-repeat;
+		}
+
+		.address {
+		    display: none;
+		}
+
+		.address_content {
+		    padding: 60px 60px 85px 60px;
+		    text-align: center;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    background: #fff;
+		    z-index: 9;
+		}
+
+		.address .title {
+		    font-size: 40px;
+		    color: #000;
+		    font-weight: bold;
+		    line-height: 2;
+		    margin-bottom: 20px;
+		}
+
+		.address ul {
+		    list-style: none;
+		}
+
+		.address .aitem {
+		    height: 95px;
+		    margin-bottom: 30px;
+		    border-radius: 10px;
+		    border: 1px solid #000;
+		}
+
+		.address .aitem input {
+		    height: 95px;
+		    width: 90%;
+		    background: none;
+		    font-size: 34px;
+		}
+
+		.address select {
+		    width: 90%;
+		    border: 0;
+		    height: 91px;
+		    font-size: 42px;
+		    outline: none;
+		}
+
+		.address .aSub {
+		    border-radius: 10px;
+		    height: 95px;
+		    background: #c62227;
+		    font-size: 48px;
+		    line-height: 95px;
+		    color: #fff;
+		    margin-bottom: 20px;
+		    margin-top: 80px;
+		}
+
+		.address .ainfo {
+		    font-size: 24px;
+		    margin-top: 35px;
+		    line-height: 30px;
+		}
+
+		.fr {
+		    float: right;
+		}
+
+		.get_code {
+		    background: #666666;
+		    color: #fff;
+		    padding: 0 10px;
+		    width: 220px;
+		    text-align: center;
+		    border-radius: 10px;
+		}
+
+		input {
+		    background-color: rgb(255, 255, 255);
+		    border-bottom-color: rgb(0, 0, 0);
+		    border-bottom-left-radius: 0px;
+		    border-bottom-right-radius: 0px;
+		    border-bottom-style: none;
+		    color: rgb(0, 0, 0);
+		    cursor: auto;
+		    display: inline-block;
+		    vertical-align: middle;
+		    width: 686px;
+		}
+
+		.wraper {
+		    width: 100%;
+		    max-width: 640px;
+		    margin: 0 auto;
+		    overflow-x: hidden;
+		    font-size: 28px;
+		    text-align: left;
+		    line-height: 42px;
+		}
+
+		.pt50 {
+		    padding-top: 50px;
+		}
+
+		.login_control {
+		    color: #c6c6c6;
+		    margin: 32px 15px 0px;
+		}
+
+		.login_tab {
+		    display: table;
+		    width: 100%;
+		}
+
+		.login_tab .login_content {
+		    display: table-cell;
+		    overflow: hidden;
+		    padding: 2px;
+		}
+
+		.changearea {
+		    width: 8%;
+		    text-align: center;
+		}
+
+		.login_content {
+		    line-height: 86px;
+		    border-radius: 10px;
+		}
+
+		.login_tab .login_content {
+		    border: 1px solid #000;
+		}
+
+		.login_label {
+		    color: #c62227;
+		    margin-bottom: 25px;
+		}
+
+		.errorinfo {
+		    font-size: 24px;
+		    height: 24px;
+		    line-height: 60px;
+		    color: #c62227;
+		    text-align: left;
+		}
+
+		#txtValidatedCode {
+		    width: 340px;
+		    padding-left: 3%;
+		    border: 1px solid #000;
+		    border-radius: 10px;
+		}
+
+		.login_space {
+		    width: 10px;
+		}
+
+		.login_phone input {
+		    width: 80%;
+		    outline: none;
+		    margin-left: 3%;
+		}
+
+		input {
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    border-radius: 0;
+		    border: none;
+		    outline: none;
+		}
+
+		.btnPanel {
+		    padding: 0 30px;
+		}
+
+		.login .btn_login {
+		    display: block;
+		    margin: 10px auto;
+		    height: 94px;
+		    font-size: 42px;
+		    line-height: 88px;
+		    background-color: #c62227;
+		    border-radius: 10px;
+		    color: #fff;
+		    text-align: center;
+		}
+
+		.login .disabled {
+		    background: #d8d8d8;
+		}
+	</style>
+	<div class="choujiang cms-choujiang" data-choujiang="1">
+    <div class="alert"></div>
+    <div class="other">
+        <div class="will">
+            <div class="reward-btn cms-reward-btn">我要抽奖</div>
+            <div class="reward-big reward-cicle"></div>
+            <div class="reward-small reward-cicle"></div>
+        </div>
+        <div class="expired" style="display:none">
+            <p class="title1">本期活动已结束，下一期活动即将到来。</p>
+            <p class="title2">关注公众号，及时参与抽奖活动。</p>
+            <a href="http://h5.yit.com/login.html?source=http%3A%2F%2Fh5.yit.com%2Factivity%2F22.html" class="expired-nologin" style="display:none">去登录</a>
+            <div class="about">
+                <img src="http://imgcms.test.yit.com/cmsres/20161107/10c3d070-ecf0-4f94-b073-60ce1e23cb58.jpeg">
+            </div>
+        </div>
+        <div class="fail" style="display:none">
+            <p>
+                您的手机是<span class="phone"></span>
+                <br/> 很遗憾，这次未能中奖。
+            </p>
+            <p>别灰心，常看我们的视频节目，
+                <br>下次还有好东西抽哦。</p>
+        </div>
+        <div class="join-info" style="display:none">
+            <span class="phone"></span>,您已成功参加抽奖
+        </div>
+        <div class="join" style="display:none">
+            <div class="join-title">
+                <p>今晚22点，我们就会在微信公众号“一条”（yitiaotv）开奖哦!
+                    <br>扫码关注，第一时间获得中奖通知。
+                </p>
+            </div>
+            <div class="about">
+                <img src="http://imgcms.test.yit.com/cmsres/20161107/10c3d070-ecf0-4f94-b073-60ce1e23cb58.jpeg">
+            </div>
+        </div>
+        <div class="success" style="display:none">
+            <p>
+                恭喜您，中奖了！
+                <br> 您的手机是
+                <span class="phone"></span>
+            </p>
+            <div class="reward-get reward-btn cms-getreward">立即领奖</div>
+        </div>
+        <div class="reward-container">
+            <div class="reward-desc">上一期中奖名单</div>
+            <div class="left-btn cms-reward-slide"></div>
+            <div class="right-btn cms-reward-slide"></div>
+            <ul class="reward-list">
+            </ul>
+        </div>
+        <div class="reward-info">
+            <div class="reward-title">抽奖须知</div>
+            <table>
+                <tr>
+                    <td><span class="flag">1</span></td>
+                    <td><span>填写手机验证即可参与。</span></td>
+                </tr>
+                <tr>
+                    <td><span class="flag">2</span></td>
+                    <td><span>开奖时间为2016年11月12日，晚22点。</span></td>
+                </tr>
+                <tr>
+                    <td><span class="flag">3</span></td>
+                    <td><span>通过一条的微信公众号（yitiaotv）公布中奖信息，中奖者需填写领取奖品的联系方式，2周内完成填写有效。</span></td>
+                </tr>
+                <tr>
+                    <td><span class="flag">4</span></td>
+                    <td><span>本期奖品阳澄湖大闸蟹礼盒兑换券; 仅配送全国部分地区，详细配送范围请<a class="special" href="http://h5.yit.com/product.html?product_id=6192&pos=search&os=h5">点击商品详情</a>。</span></td>
+                </tr>
+                <tr>
+                    <td><span class="flag">5</span></td>
+                    <td><span>最终解释权归上海一条网络科技有限公司所有。</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="more">
+            <div class="reward-more">再买点宝贝开心一下</div>
+            <div class="reward-top"></div>
+        </div>
+    </div>
+    <div class="popphone cms-login">
+        <div class="wraper pt50 login">
+            <div class="login_control ">
+                <div class="login_label">为了中奖后方便联系您，请验证一下手机号哦。</div>
+                <div class="login_tab">
+                    <div class="login_content login_phone">
+                        <input placeholder="填写手机号" id="txtCustomerID" type="tel" />
+                    </div>
+                </div>
+            </div>
+            <div class="login_control">
+                <div class="login_content">
+                    <input id="txtValidatedCode" placeholder="验证码" type="text">
+                    <div id="smsgetCode" class="get_code fr">发送验证码</div>
+                    <div class="get_code fr" id="counter" style="display: none;">重新获取(<span>0</span>)</div>
+                    <div class="errorinfo"></div>
+                </div>
+            </div>
+            <div class="btnPanel">
+                <a ubt="subBtn" class="btn_red btn_login flex_item" id="txtlogin">验证手机号</a>
+            </div>
+            <div class="reward-info">
+                <div class="reward-title">抽奖须知</div>
+                <table>
+                    <tr>
+                        <td><span class="flag">1</span></td>
+                        <td><span>填写手机验证即可参与。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="flag">2</span></td>
+                        <td><span>开奖时间为2016年11月12日，晚22点。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="flag">3</span></td>
+                        <td><span>通过一条的微信公众号（yitiaotv）公布中奖信息，中奖者需填写领取奖品的联系方式，2周内完成填写有效。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="flag">4</span></td>
+                        <td><span>本期奖品阳澄湖大闸蟹礼盒兑换券; 仅配送全国部分地区，详细配送范围请<a class="special" href="http://h5.yit.com/product.html?product_id=6192&pos=search&os=h5">点击商品详情</a>。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="flag">5</span></td>
+                        <td><span>最终解释权归上海一条网络科技有限公司所有。</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="address">
+        <div class="address_header"></div>
+        <div class="address_content">
+            <div class="title">请填写您领取奖品的联系方式</div>
+            <ul>
+                <li class="aitem">
+                    <input class="addName" placeholder="姓名" />
+                </li>
+                <li class="aitem">
+                    <input class="addPhone" placeholder="手机号" type="tel" />
+                </li>
+                <li class="aitem">
+                    <input class="provence" placeholder="省/直辖市"></input>
+                </li>
+                <li class="aitem">
+                    <input class="citys" placeholder="市"></input>
+                </li>
+                <li class="aitem">
+                    <input class="areas" placeholder="区/县"></input>
+                </li>
+                <li class="aitem">
+                    <input class="addDetail" placeholder="详细地址" />
+                </li>
+            </ul>
+            <div class="aSub">提交</div>
+            <p class="ainfo" style="visibility:hidden">
+                领奖收货人已提交成功！
+                <br/> 奖品将在5个工作日内发出，请耐心等待。
+            </p>
+            <div class="line"></div>
+            <div class="reward-info">
+                <div class="reward-title">抽奖须知</div>
+                <table>
+                    <tr>
+                        <td><span class="flag">1</span></td>
+                        <td><span>填写手机验证即可参与。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="flag">2</span></td>
+                        <td><span>开奖时间为2016年11月12日，晚22点。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="flag">3</span></td>
+                        <td><span>通过一条的微信公众号（yitiaotv）公布中奖信息，中奖者需填写领取奖品的联系方式，2周内完成填写有效。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="flag">4</span></td>
+                        <td><span>本期奖品阳澄湖大闸蟹礼盒兑换券; 仅配送全国部分地区，详细配送范围请<a class="special" href="http://h5.yit.com/product.html?product_id=6192&pos=search&os=h5">点击商品详情</a>。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="flag">5</span></td>
+                        <td><span>最终解释权归上海一条网络科技有限公司所有。</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

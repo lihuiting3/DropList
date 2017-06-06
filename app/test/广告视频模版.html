@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+	<!-- -->
+	<style>
+	    .cms-video{
+	    	padding:52px 30px;
+	    }
+	    .cms-video video{
+			width:690px;	  
+		}
+		.cms-video .title{
+			font-size:38px;
+			color:#000000;
+			text-align:center;
+			margin:50px auto 40px;
+		}
+		.cms-video p{
+			font-size:28px;
+			color:#333333;
+			line-height:44px;
+			text-align:justify;
+			margin-bottom:44px;
+		}
+	</style>
+	<div class="cms-video">
+		<video src="http://61.240.152.24/vhot2.qqvideo.tc.qq.com/n0500p5pey7.p712.1.mp4?sdtfrom=v1010&guid=6ad4ce2f6b798ff8da98cc497b15a0cb&vkey=188E93CB428D1492393C14A5E496BB9D31B8FA6D63F1BDA17A6DECA6A8C51176D6C05024DC79414F375175822EF55B7064242F917F893AC842A8E6F7EEC266265DA778F777822AFD55C9F2295B7D123B026709FBA20B5E3883BB43C2E9889C26825AE2BB233FB049E47972C314654D0F" poster="" controls="controls"></video>
+		<div class="title">《80万，爆改上海闹市400㎡独栋小楼》</div>
+		<p>
+			上海市中心的五原路上，
+			隐匿着建筑师刘宇扬的工作室。
+			400平米独栋，花了80万改造。
+		</p>
+		<p>
+			我们心目的人群是浪漫，潇洒同时又是有点反叛和冷酷的男人和女人，无论身在何处都保有纯粹简单的生活状态，有时候甚至有点不修边幅，以及颓废。
+		</p>
+		<p>
+			我们心目的人群是浪漫，潇洒同时又是有点反叛和冷酷的男人和女人。
+		</p>
+	<div>
+	<script>
+	   $("document").ready(function(){
+	   	$($(".cms-video video")[0]).click(function(){
+	   		if($(".cms-video video").hasClass("play")){
+	   			$(".cms-video video")[0].pause();
+	   			$(".cms-video video").removeClass("play");
+	   		}else{
+	   			$(".cms-video video")[0].play();
+	   			$(".cms-video video").addClass("play");
+	   		}
+	   		
+	   	});
+	   });
+	</script>
+</body>
+</html>

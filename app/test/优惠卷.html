@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+	<!-- -->
+	<style>
+	    .cms-coupon{
+	    	position:fixed;
+	    	top:0;
+	    	left:0;
+	    	width:100%;
+	    	height:100%;
+	    }
+	    .cms-coupon .mask{
+	    	background: #b2b2b2;
+	    	opacity:0.7;
+	    	width:100%;
+	    	height:100%;
+	    }
+		.cms-coupon .container{
+			position:absolute;
+    		color:#fff;
+    		width:530px;
+    		height:345px;
+    		top:50%;
+    		left:50%;
+    		transform:translate(-50%, -50%);
+    		-webkit-transform:translate(-50%, -50%);
+    		background: url(https://imgcms.yit.com/cmsres/20170505/e0b60a66-f0e8-411a-95e2-0211377d0680.png) no-repeat;
+    		background-size: contain;
+		}
+		.cms-coupon .close{
+			position: absolute;
+			top:0;
+			right:0;
+			width:60px;
+			height:60px;
+		}
+		.cms-coupon-icon{
+			background:url(https://imgcms.yit.com/cmsres/20170505/965378a8-610c-4585-9948-51d1eb55ab85.png) no-repeat;
+			background-position:contain;
+			width:110px;
+			height: 100px;
+			font-size:18px;
+			color:#b9252b;
+			line-height:20px;
+			text-align:center;
+			position:fixed;
+			bottom:260px;
+			right:7px;
+			padding-top:80px;
+		}
+	</style>
+	<div class="cms-coupon">
+		<div class="mask"></div>
+		<div class="container">
+			<div class="close"></div>
+		</div>
+	</div>
+	<div class="cms-coupon-icon">新人礼包</div>
+</body>
+</html>

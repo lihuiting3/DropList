@@ -1,0 +1,97 @@
+.cms-two{
+	width:750px;
+    padding-left:10px;
+    padding-bottom:40px;
+    background: #fff;
+}
+.cms-two ul{
+	list-style: none;
+	overflow: hidden;
+}
+.cms-two li{
+	float:left;
+	margin-right:10px;
+	margin-bottom:40px;
+}
+.cms-two .title{
+	font-size:34px;
+	color:#333333;
+	text-align:center;
+	line-height: 114px;
+	height: 114px;
+	text-align: center;
+	padding-right: 10px;
+	width:100%;
+}
+.cms-two img{
+	width:360px;
+	height: 360px;
+	margin-bottom:20px;
+}
+.cms-two .name{
+	font-size:30px;
+	color:#333333;
+	line-height:44px;
+	text-align:left;
+	margin:0 20px;
+	width:320px;
+}
+.cms-two .subname{
+	font-size:24px;
+	color:#999999;
+	letter-spacing:0;
+	line-height:40px;
+	height:80px;
+	text-align:left;
+	margin:10px 20px 10px;
+	width:320px;
+}
+.cms-two .rprice{
+	font-size:24px;
+	color:#ad0e11;
+	letter-spacing:0;
+	line-height:26px;
+	text-align:left;
+	margin-left:20px;
+}
+.cms-two .rprice span{
+	font-size: 30px;
+	display: inline-block;
+	margin-left: 4px;
+}
+.cms-two em{
+	font-size:26px;
+	color:#ad0e11;
+	line-height:26px;
+}
+.cms-two .more{
+	font-size:28px;
+	color:#9b9b9b;
+	text-align:center;
+	padding-top:10px;
+	height:40px;
+}
+.cms-two .more span{
+	display: inline-block;
+    height: 37px;
+    width: 37px;
+    vertical-align: top;
+}
+.cms-two .more-icon{
+	border:1px solid #979797;
+	width:37px;
+	height:38px;
+	border-radius:100%;
+	margin-left:40px;
+	
+}
+.cms-two .more-icon:after{
+	content: " ";
+	transform:translate(-5px, 9px) rotate(45deg);
+	-webkit-transform:translate(-5px, 9px) rotate(45deg);
+	border-top:1px solid #9b9b9b;
+	border-right:1px solid #9b9b9b;
+	width:15px;
+	height:15px;
+	display: inline-block;
+}

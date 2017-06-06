@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+    	body img{
+    		background:#d8d8d8;
+    	}
+    </style>
+</head>
+<body>
+	<!-- -->
+	<style>
+		.cms-search{
+			padding:20px 29px 0 24px;
+			width:750px;
+			background:#ffffff;
+			height:80px;
+			position:relative;
+		}
+		.cms-search .searchwords{
+			background:#f3f5f5;
+			border-radius:30px;
+			width:637px;
+			height:60px;
+			font-size:24px;
+			color:#999999;
+			letter-spacing:1px;
+			line-height:24px;
+			text-align:left;
+			-webkit-appearance: none;
+    		-moz-appearance: none;
+    		text-align: center;
+    		display:inline-block;
+    		border:none;
+    		outline: none;
+    		float:left;
+		}
+		.cms-search .cart{
+			display:inline-block;
+			background:#fff;
+		}
+		.cms-search .cart img{
+			background:#fff;
+		}
+		.cms-search .search-icon{
+			position:absolute;
+			left:220px;
+			top:51px;
+			display:inline-block;
+			height:24px;
+		}
+		.cms-search .search-icon:before{
+		    -webkit-transform: translate(-50%, -50%);
+		    -ms-transform: translate(-50%, -50%);
+		    transform: translate(-50%, -50%);
+		    content: " ";
+		    border: 2px solid currentColor;
+		    height: 20px;
+		    width: 20px;
+		    -webkit-border-radius: 50%;
+		    border-radius: 50%;
+		    margin-left: -3px;
+		    margin-top: -3px;
+		    display: inline-block;
+		}
+		.cms-search .search-icon:after{
+			content: " ";
+			background: currentColor;
+		    height: 12px;
+		    width: 2px;
+		    margin-top: 10px;
+		    margin-left: -13px;
+		    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+		    -ms-transform: translate(-50%, -50%) rotate(-45deg);
+		    transform: translate(-50%, -50%) rotate(-45deg);
+		    display: inline-block;
+		}
+		.focus .searchwords{
+			text-align:left;
+			padding-left:60px;
+			left:60px;
+		}
+		.focus .search-icon{
+			left:50px;
+		}
+		.cms-search .cartnumber{
+		    position: absolute;
+		    top: 22px;
+		    left: 690px;
+		    font-size: 20px;
+		    color: #ffffff;
+		    line-height: 24px;
+		    text-align: center;
+		    background: #ad0e11;
+		    border: 1px solid #ffffff;
+		    height: 24px;
+		    border-radius: 15px;
+		    padding: 0 6px;
+		}
+	</style>
+	<div class="cms-search">
+		<span class="search-icon"></span>
+		<input type="text" class="searchwords" placeholder="搜索一万件好东西" />
+		<a class="cart"><img src="icon_buy.png"></a>
+		<div class="cartnumber">99+</div>
+	</div>
+
+
+	<style>
+		.cms-searchcatagory{
+			margin-top:20px;
+			width:750px;
+			overflow: hidden;
+		}
+		.cms-searchcatagory .fcatagory{
+			width:207px;
+			list-style: none;
+			float:left;
+			/*border-right:1px solid #dedede;*/
+			height: 100%
+		}
+		.cms-searchcatagory .item{
+			font-size: 28px;
+		    color: #000000;
+		    text-align: center;
+		    position: relative;
+		    height: 88px;
+		    line-height: 88px;
+		}
+		.cms-searchcatagory .item.active{
+			color:#ad0e11;
+		}
+
+		.cms-searchcatagory .item.active::after{
+			background:#ad0e11;
+			width:10px;
+			height:30px;
+			content: " ";
+			position: absolute;
+			left:0;
+			top:28px;
+		}
+
+		.cms-searchcatagory .fcontent{
+			float:left;
+			width:542px;
+			text-align:center;
+			border-left: 1px solid #dedede;
+		}
+
+		.cms-searchcatagory .banner{
+			background:#d8d8d8;
+			border-radius:6px;
+			width:480px;
+			height:230px;
+			display: inline-block;
+		} 
+		.cms-searchcatagory .stitle{
+			font-family:.PingFangSC-Light;
+			font-size:24px;
+			color:#9b9b9b;
+			display: inline-block;
+			margin:60px 15px 0;
+		}
+		.cms-searchcatagory .line{
+			content: " ";
+			border:1px solid #cccccc;
+			width:29px;
+			height:1px;
+			display: inline-block;
+			vertical-align: 8px;
+		}
+		.cms-searchcatagory .hot{
+			margin: 40px 40px 0;
+			overflow: hidden;
+		}
+		.cms-searchcatagory .hot li{
+			margin-bottom: 40px;
+			margin-right: 50px;
+			float:left;
+		}
+		.cms-searchcatagory .hot li:nth-child(3n){
+			margin-right: 0px;
+		}
+		.cms-searchcatagory .hot-name{
+			font-size:24px;
+			color:#000000;
+			text-align:center;
+			margin-top: 10px;
+			height:44px;
+			line-height: 44px;
+		}
+		.cms-searchcatagory .guess{
+			margin-top:10px;
+		}
+		.cms-searchcatagory .guess-product{
+			margin:40px 20px 0;
+			overflow: hidden;
+		}
+		.cms-searchcatagory .guess-product li{
+			float:left;
+			margin-right:20px;
+			width:240px
+		}
+		.cms-searchcatagory .guess-product li:nth-child(2n){
+			margin-right: 0;
+		}
+		.cms-searchcatagory .guess-name{
+			font-size:24px;
+			color:#000000;
+			line-height:34px;
+			text-align:left;
+			margin-top:20px;
+			width: 210px;
+			margin-left:15px;
+		}
+		.cms-searchcatagory em{
+			font-size:24px;
+			color:#ad0e11;
+			text-align:left;
+			display: inline-block;
+		}
+		.cms-searchcatagory .rprice{
+			font-size:28px;
+			color:#ad0e11;
+			letter-spacing:0px;
+			text-align:left;
+			display: inline-block;
+		}
+		.cms-searchcatagory .priceinfo{
+			width:210px;
+			margin-left:15px;
+			text-align: left;
+			margin-bottom:50px;
+		}
+	</style>
+	<div class="cms-searchcatagory">
+		<ul class="fcatagory">
+			<li class="item">今日推荐</li>
+			<li class="item">今日推荐</li>
+			<li class="item active">今日推荐</li>
+			<li class="item">今日推荐</li>
+			<li class="item">今日推荐</li>
+			<li class="item">今日推荐</li>
+			<li class="item">今日推荐</li>
+		</ul>
+		<ul class="fcontent">
+			<li>
+				<img class="banner" src="http://placehold.it/480x230">
+				<div class="sdescription">
+					<span class="line"></span>
+					<span class="stitle">最热分类</span>
+					<span class="line"></span>
+				</div>
+				<ul class="hot">
+					<li>
+						<img src="http://placehold.it/120x120" >
+						<div class="hot-name">生活电器</div>
+					</li>
+					<li>
+						<img src="http://placehold.it/120x120" >
+						<div class="hot-name">生活电器</div>
+					</li>
+					<li>
+						<img src="http://placehold.it/120x120" >
+						<div class="hot-name">生活电器</div>
+					</li>
+					<li>
+						<img src="http://placehold.it/120x120" >
+						<div class="hot-name">生活电器</div>
+					</li>
+				</ul>
+				<div class="sdescription ">
+					<span class="line"></span>
+					<span class="stitle guess">最热分类</span>
+					<span class="line"></span>
+				</div>
+				<ul class="guess-product">
+					<li>
+						<img src="http://placehold.it/240x180">
+						<div class="guess-name">
+							智能尤克里里 Populele U1 视感科技
+						</div>
+						<div class="priceinfo">
+							<em>¥</em>
+							<span class="rprice">160</span>
+						</div>
+					</li>
+					<li>
+						<img src="http://placehold.it/240x180">
+						<div class="guess-name">
+							智能尤克里里 Populele U1 视感科技
+						</div>
+						<div class="priceinfo">
+							<em>¥</em>
+							<span class="rprice"></span>
+						</div>
+					</li>
+					<li>
+						<img src="http://placehold.it/240x180">
+						<div class="guess-name">
+							智能尤克里里 Populele U1 视感科技
+						</div>
+						<div class="priceinfo">
+							<em>¥</em>
+							<span class="rprice"></span>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

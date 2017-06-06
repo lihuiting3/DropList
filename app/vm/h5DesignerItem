@@ -1,0 +1,19 @@
+#if($content&&$content.size()==1)
+    #set($module=$content.get(0))
+    <div class="cms-designer-item">
+        <ul>
+            #foreach($item in $module)
+            <li>
+                <a href='$!{item.get("h5link")}'>
+                <div class="item-name">$!{item.get("name")}</div>
+                <img src="$!{item.get("extImgUrl")}">
+                <div class="item-title">
+                    <span class="item-sub ellipsis">$!{item.get("subName")}</span>
+                    <span class="item-detail">查看详情</span>
+                </div>
+                </a>
+            </li>
+            #end
+        </ul>
+    </div>
+#end

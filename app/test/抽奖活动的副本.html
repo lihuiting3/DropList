@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+    	body img{
+    		background:#d8d8d8;
+    	}
+    </style>
+</head>
+<body>
+	<!-- -->
+	<style>
+		.choujiang .title-info{
+			font-size:28px;
+			color:#ffffff;
+			text-align:left;
+			padding-left:30px;
+			line-height:50px;
+			width:750px;
+			position:fixed;
+			top:0;
+			left:0;
+			background:#c1272d;
+		}
+		.choujiang .question-info{
+			margin-top:50px;
+			padding:60px 60px 0;
+			text-align: center;
+		}
+		.choujiang .q-title{
+			margin-bottom:45px;
+			font-size:42px;
+			color:#000000;
+			text-align:center;
+		}
+		.choujiang .question{
+			font-size:30px;
+			color:#000000;
+			letter-spacing:0px;
+			line-height:42px;
+			text-align:left;
+		}
+		.choujiang .answer{
+			margin-top: 70px;
+		    border: 1px solid #9b9b9b;
+		    border-radius: 8px;
+		    width: 628px;
+		    height: 86px;
+		    padding-left: 30px;
+		    font-size: 30px;
+		    outline: none;
+		}
+		.choujiang .submit{
+			margin-top:60px;
+			background:#c1272d;
+			border:2px solid #c1272d;
+			border-radius:8px;
+			width:396px;
+			height:86px;
+			font-size:32px;
+			color:#ffffff;
+			text-align:center;
+			line-height: 86px;
+			display: inline-block;
+		}
+		.choujiang .line{
+			margin-top: 50px; 
+			border-top:1px dashed #979797;
+			width:629px;
+			height:1px;
+
+		}
+		.choujiang .reward-info{
+			padding:39px 60px;
+		}
+		.choujiang .r-title{
+			font-size:42px;
+			color:#000000;
+			letter-spacing:0px;
+			line-height:60px;
+			text-align:center;
+			width:100%;
+		}
+		.choujiang img{
+			background:#d8d8d8;
+			width:630px;
+			height:400px;
+			margin-top:12px;
+		}
+		.choujiang .r-name{
+			font-size: 38px;
+			color:#000;
+			text-align: center;
+			width:100%;
+			margin-top:40px;
+		}
+		.choujiang .r-subname{
+			font-size: 28px;
+			color:#999;
+			line-height: 60px;
+			height: 60px;
+			text-align: center;
+		}
+		.choujiang .r-detail{
+			font-size:28px;
+			color:#c1272d;
+			letter-spacing:0px;
+			text-align:center;
+			width:100%;
+			padding-bottom:20px;
+		}
+		.choujiang .reward-detail{
+			padding:69px 64px 60px;
+		}
+		.choujiang .d-empty{
+			background:#f9f9f9;
+			width:100%;
+			height:30px;
+		}
+		.choujiang .d-title{
+			font-size:32px;
+			color:#c1272d;
+			letter-spacing:0px;
+			text-align:center;
+			width:100%;
+		}
+		.choujiang .d-content{
+			font-size:22px;
+			color:#666666;
+			letter-spacing:0px;
+			line-height:38px;
+			text-align:left;
+			margin-top: 30px;
+		}
+		.choujiang .answer-info{
+			font-size:30px;
+			color:#9b9b9b;
+			padding:0 60px;
+		}
+		.choujiang .a-item{
+			padding:120px 60px 60px;
+			letter-spacing:0px;
+			text-align:left;
+		}
+		.choujiang .a-title{
+			font-size:42px;
+			color:#000000;
+			letter-spacing:0px;
+			text-align:center;
+			margin-top: 70px;
+			width:100%;
+			margin-bottom: 95px;
+		}
+		/*.choujiang .answer-info input{
+			margin-top: 20px;
+		}*/
+		.choujiang .a-check{
+			 width: 628px;
+		    overflow: hidden;
+		    height: 90px;
+		    margin-top: 40px;
+		}
+		.choujiang .a-input{
+			border: 1px solid #9b9b9b;
+		    border-radius: 8px;
+		    width: 385px;
+		    height: 86px;
+		    padding: 0 30px;
+		    font-size: 30px;
+		    outline: none;
+		    float: left;
+		}
+		.choujiang .check{
+			background: #ededed;
+		    border-radius: 8px;
+		    width: 213px;
+		    height: 88px;
+		    font-size: 32px;
+		    color: #000000;
+		    letter-spacing: 0px;
+		    text-align: center;
+		    display: inline-block;
+		    float: left;
+		    line-height: 88px;
+		    margin-left: 29px;
+		}
+		.choujiang .disabled{
+			background:#f5f5f5;
+			color:#999;
+		}
+		.choujiang .a-join{
+			background:#c1272d;
+			border:2px solid #c1272d;
+			border-radius:8px;
+			width:397px;
+			height:86px;
+			text-align: center;
+			font-size:32px;
+			color:#ffffff;
+			line-height: 86px;
+			margin-left:115px;
+			margin-top: 60px;
+		}
+		.choujiang .error{
+			position:relative;
+			display: none;
+		}
+		.choujiang .a-mask{
+			opacity:0.09;
+			background:#000000;
+			width:750px;
+			height:100%;
+			position: fixed;
+			top:0;
+			left:0;
+		}
+		.choujiang .error-info{
+			background: #ffffff;
+		    border-radius: 6px;
+		    width: 560px;
+		    height: 140px;
+		    font-size: 30px;
+		    color: #333333;
+		    letter-spacing: 0px;
+		    line-height: 140px;
+		    text-align: center;
+		    position: fixed;
+		    top: 50%;
+		    margin-left: 35px;
+		}
+		.choujiang .submit-info{
+			padding:110px 60px 60px;
+			font-size: 30px;
+			line-height: 42px;
+		}
+		.choujiang .s-self{
+			margin:100px 0 50px;
+			font-size: 30px;
+			line-height: 42px;
+			color:#000;
+		}
+		.choujiang .s-wait{
+			font-size:36px;
+			color:#c1272d;
+			letter-spacing:0px;
+			line-height:42px;
+			text-align:left;
+		}
+		.choujiang .p-answer{
+			font-size:36px;
+			color:#c1272d;
+			letter-spacing:0px;
+			text-align:left;
+			margin-top:100px;
+		}
+		.choujiang .prize-info{
+			padding:110px 60px 0;
+
+		}
+		.choujiang .p-list{
+			padding:0 64px;
+			margin-top:70px;
+			list-style: none;
+			overflow: hidden;
+		}
+		.choujiang .p-item{
+			float:left;
+			width:50%;
+			font-size:30px;
+			color:#000000;
+			letter-spacing:0px;
+			text-align:left;
+			float:left;
+		}
+		.choujiang .p-item:nth-child(2n){
+			text-align: right;
+		}
+		.choujiang .p-all{
+			width:100%;
+			text-align: center;
+			font-size:28px;
+			color:#000000;
+			letter-spacing:0px;
+			text-align:center;
+			margin-top:50px;
+		}
+		.choujiang .prize-already, .choujiang .prize-get, .choujiang .prize-fail{
+			padding:110px 60px 0;
+		}
+		.choujiang .p-answer1{
+			color:#000;
+			font-size: 30px;
+		}
+		.choujiang .p-con{
+			margin-top: 100px;
+			width:100%;
+			text-align: center;
+		}
+		.choujiang .p-allprize{
+			font-size:30px;
+			color:#000000;
+			letter-spacing:0px;
+			text-align:center;
+			width:100%;
+			margin-top:70px;
+		}
+		.choujiang .p-address{
+			font-size:30px;
+			color:#000000;
+			letter-spacing:0px;
+			text-align:center;
+			margin-top:30px;
+		}
+		.choujiang .prize-already .p-list, .choujiang .prize-get .p-list, .choujiang .prize-fails .p-list{
+			margin-top: 27px;
+		}
+		.choujiang .p-fail{
+			font-size:36px;
+			color:#000000;
+			letter-spacing:0px;
+			line-height:50px;
+			text-align:center;
+			width:100%;
+			padding:90px 0 100px;
+		}
+		.choujiang .address-info{
+			padding:60px;
+		}
+		.choujiang .ad-title{
+			font-size:42px;
+			color:#000000;
+			letter-spacing:0px;
+			line-height:60px;
+			text-align:center;
+			width:100%;
+			margin-bottom:60px;
+		}
+		.choujiang .ad-full{
+			overflow: hidden;
+			list-style: none;
+		}
+		.choujiang .ad-item{
+			float:left;
+			font-size:30px;
+			color:#000000;
+			letter-spacing:0px;
+			line-height:60px;
+			text-align:left;
+			margin-top:20px;
+			height:60px;
+		}
+		.choujiang .ad-item:nth-child(2n+1){
+			width:180px;
+		}
+		.choujiang .ad-item:nth-child(2n){
+			width:446px;
+		}
+		.choujiang .ad-full input{
+			border:1px solid #999999;
+			border-radius:8px;
+			width:444px;
+			height:58px;
+			padding-left: 30px;
+		}
+		.choujiang .ad-right{
+			float:right;
+			transform:rotate(45deg);
+			-webkit-transform:rotate(45deg);
+			border-top:3px solid #979797;
+			border-right:3px solid #979797;
+			width:17px;
+			height:18px;
+			margin-top:20px;
+			margin-right: 10px;
+		}
+		.choujiang .ad-save{
+			margin-top:150px;
+		}
+		.choujiang .ad-after{
+			position: fixed;
+		    top: 50%;
+		    transform: translateY(-50%);
+		    -webkit-transform:translateY(-50%);
+		    background: #ffffff;
+		    border: 1px solid #9b9b9b;
+		    border-radius: 8px;
+		    width: 598px;
+		    height: 730px;
+		}
+		.choujiang .af-title{
+			font-size:36px;
+			color:#c1272d;
+			letter-spacing:0px;
+			line-height:50px;
+			text-align:center;
+			width: 100%;
+			margin-top:180px;
+			margin-bottom: 158px;
+		}
+		.choujiang .af-enter{
+			display:inline-block;
+			font-size:30px;
+			color:#c1272d;
+			letter-spacing:0px;
+			text-align:center;
+			width:100%;
+			margin-top: 40px;
+			text-decoration: underline;
+		}
+		.choujiang .alert {
+		    max-width: 500px;
+		    font-size: 36px;
+		    line-height: 50px;
+		    background: #000;
+		    color: #fff;
+		    opacity: .7;
+		    text-align: center;
+		    position: fixed;
+		    z-index: 999;
+		    top: 50%;
+		    left: 50%;
+		    padding: 20px;
+		    transform: translateX(-50%) translateY(-50%);
+		    -webkit-transform: translateX(-50%) translateY(-50%);
+		    border-radius: 10px;
+		    word-break: break-word;
+		    display: none;
+		}
+	</style>
+	<div class="choujiang">
+		<div class="title-info">2017.03.21有奖问答</div>
+		<div class="question-info">
+			<div class="q-title">本期问题</div>
+			<p class="question">问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题？</p>
+			<input class="answer" placeholder="请输入您的答案"></input>
+			<div class="submit">提交答案</div>
+			<div class="line"></div>
+		</div>
+		<div class="reward-info">
+			<div class="r-title">本期奖品</div>
+			<img src="1.png">
+			<div class="r-name">养生壶 北鼎</div>
+			<div class="r-subname">德国进口肖特玻璃 英国进口温控器</div>
+			<div class="r-detail">点击查看详情  >>></div>
+		</div>
+  		<div class="answer-info"> 
+  			<div class="a-item">您的答案：答案1</div>
+  			<div class="a-success">
+	  			<div class="a-title">回答正确</div>
+	  			<div>请填写真实手机号：</div>
+	  			<input class="answer" placeholder="填写手机号"></input>
+	  			<div class="a-check">
+	  				<input class="a-input" placeholder="验证码"/>
+	  				<div class="check disabled">发送验证码</div>
+	  			</div>
+	  			<div class="error">
+	  				<div class="a-mask"></div>
+	  				<div class="error-info">验证码错误</div>
+	  			</div>
+	  			<div class="a-join a-act">参加抽奖</div>
+  			</div>
+  			<div class="a-fail">
+  				<div class="a-title">回答错误</div>
+  				<div class="a-join a-retry">重新回答</div>
+  			</div>
+  		</div>
+  		<div class="submit-info">
+  			<p class="question">问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题？</p>
+  			<p class="s-self">
+  				您的答案：答案1 <br/>
+				您的手机号：12338383838
+  			</p>
+  			<p class="s-wait">
+  				已成功提交！<br/>
+				请等待晚上10点公布中奖名单！
+  			</p>
+  		</div>
+  		<div class="prize-info">
+  			<div class="q-title">本期问题</div>
+			<p class="question">问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题？</p>
+			<div class="p-answer">正确答案：答案1</div>
+			<div class="a-join">查看中奖名单</div>
+			<ul class="p-list">
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+			</ul>
+			<div class="p-all">查看全部></div>
+			<div class="line"></div>
+  		</div>
+  		<div class="prize-already">
+  			<div class="q-title">本期问题</div>
+			<p class="question">问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题？</p>
+			<div class="p-answer p-answer1">正确答案：答案1</div>
+			<div class="p-answer p-con">恭喜！您已中奖</div>
+			<div class="a-join a-act">我要领奖</div>
+
+			<div class="p-allprize">全部中奖名单</div>
+			<ul class="p-list">
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+			</ul>
+			<div class="line"></div>
+  		</div>
+  		<div class="prize-get">
+  			<div class="q-title">本期问题</div>
+			<p class="question">问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题？</p>
+			<div class="p-answer p-answer1">正确答案：答案1</div>
+			<div class="p-answer p-con">恭喜！您已中奖</div>
+			<p class="p-address">
+				您的收货地址：<span>xxxxxxxxxxxxxxx </span><br/>
+				<a href="">修改收货地址></a>
+			</p>
+
+			<div class="p-allprize">全部中奖名单</div>
+			<ul class="p-list">
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+			</ul>
+			<div class="line"></div>
+  		</div>
+  		<div class="prize-fail">
+  			<div class="q-title">本期问题</div>
+			<p class="question">问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题问题？</p>
+			<div class="p-answer p-answer1">正确答案：答案1</div>
+			<div class="p-answer p-fail">很遗憾，您未中奖</div>
+			<div class="p-allprize">全部中奖名单</div>
+			<ul class="p-list">
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+				<li class="p-item">123xxxx8901</li>
+			</ul>
+			<div class="line"></div>
+  		</div>
+  		<div class="address-info">
+  			<div class="ad-title">填写收货地址</div>
+  			<ul class="ad-full">
+  				<li class="ad-item">收货人姓名：</li>
+  				<li class="ad-item">
+  					<input type="text" />
+  				</li>
+  				<li class="ad-item">手机号码：</li>
+  				<li class="ad-item">
+  					<input type="tel" />
+  				</li>
+  				<li class="ad-item">所有区域：</li>
+  				<li class="ad-item">
+  					<div class="ad-right"></div>
+  				</li>
+  				<li class="ad-item">详细地址：</li>
+  				<li class="ad-item">
+  					<input type="text" />
+  				</li>
+  			</ul>
+  			<div class="a-join ad-save">保存</div>
+  			<div class="error">
+  				<div class="a-mask"></div>
+  				<div class="ad-after">
+  					<div class="af-title">已成功保存您的收货地址！</div>
+  					<div class="a-join af-know">我知道了</div>
+  					<a class="af-enter">进入一条生活馆</a>
+  				</div>
+	  		</div>
+  		</div>
+
+		<div class="d-empty"></div>
+		<div class="reward-detail">
+			<div class="d-title">活动须知</div>
+			<p class="d-content">
+				❶ 活动时间：2016年11月30日 至 2016年12月3日。<br>
+				❷ 填写手机验证即有机会获得体验资格，获得体验资格的用户只需支付1元即可购买指定商品，每位用户限购1件。<br>
+				❸ 商品大陆地区包邮，不包含港澳台地区，物流配送地区以商
+				    品详情为准。<br>
+				❹ 具有体验资格的用户请尽快支付，2016年12月3日23:59:59               结束后，未支付用户将视为自动放弃购买机会。<br>
+				❺ 1元购商品不接受非质量问题的退换货。<br>
+				❻ 仅限大陆地区用户参加，最终解释权归属上海一条网络科技
+				    有限公司。<br>
+			</p>
+        </div>
+
+        <div class="alert"></div>
+	</div>
+</body>
+</html>

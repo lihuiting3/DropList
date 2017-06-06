@@ -1,0 +1,147 @@
+body{
+    margin:0;
+}
+.title{
+	text-align: center;
+}
+.title h2{
+	font-size: 34px; /*px*/
+	display: inline-block;
+	position: relative;
+}
+.title02{
+	padding-top: 10px;
+}
+.title02 h2{
+	position: relative;
+	padding-bottom: 15px;
+}
+.title02 h2::after{
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 0;
+	background: #ad0e11;
+	width: 60px;
+	height: 4px;
+}
+.title03 h2{
+	margin-bottom: 16px;
+}
+.title03 p{
+	font-size: 30px; /*px*/
+}
+
+*{
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+.goods-list{
+	text-align: center;
+}
+.goods-list .fixed-height{
+	height:180px;
+}
+.goods-list h2,
+.goods-list .goods-text{
+	padding: 0 30px;
+}
+.goods-list h2{
+	font-size: 30px;/*px*/
+	color: #333;
+	margin-bottom: 8px;
+	margin-top: 17px;
+	line-height: 40px;
+/*	height:68px;
+*/}
+.goods-list .goods-text{
+	color: #999;
+	font-size: 24px;/*px*/
+	margin-bottom: 20px;
+	line-height: 1.65; /*px*/
+	height: 78px; /*px*/
+}
+.goods-list{
+	padding-left: 10px;
+}
+.goods-list li{
+	float: left;
+	background: #fff;
+	position: relative;
+}
+.goods-list-pic{
+	position: relative;
+}
+.goods-more span{
+	display: block;
+	font-size: 34px; /*px*/
+	color: #333;
+	padding-bottom: 80px;
+}
+.goods-more-icon{
+	display: inline-block;
+	position: relative;
+	width: 60px;
+	height: 60px;
+	border: 1px solid #979797;/*no*/
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
+}
+.goods-more-icon::after{
+	content: "";
+	width: 14px;
+	height: 14px;
+	border-right: 1px solid #333; /*no*/
+	border-bottom: 1px solid #333;/*no*/
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-70%,-50%) rotate(-45deg);
+	    -ms-transform: translate(-70%,-50%) rotate(-45deg);
+	        transform: translate(-70%,-50%) rotate(-45deg);
+}
+/*goods01 开始*/
+.goods01 .title{
+	margin-bottom: 22px;
+}
+.goods01 .goods-list img{
+	//margin-bottom: 17px;
+	/*width: 360px;*/
+	/*height: 360px;*/
+}
+.goods01 .goods-list li{
+	width: 360px;
+	height: 620px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	padding-bottom: 20px;
+}
+/*goods02 开始*/
+.goods02{
+	padding-top: 20px;
+}
+.goods02 .goods-list{
+	padding-left: 22px;
+}
+.goods02 .goods-list li{
+	margin-right: 22px;
+	margin-bottom: 25px;
+	width: 342px;
+}
+.goods02 .goods-list img{
+	margin-bottom: 27px;
+	width: 342px;
+	height: 342px;
+}
+.goods-list .cms-soldout .price{
+   color: #999;
+}
+.goods-list .cms-soldout .yen{
+   color: #999;
+}

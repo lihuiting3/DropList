@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+    	body img{
+    		background:#d8d8d8;
+    	}
+    </style>
+</head>
+<body>
+	<!-- -->
+	<style>
+		.cms-tabtitle{
+
+		}
+		.cms-tabtitle-fixed{
+			display:fixed;
+			z-index:999;
+		}
+		.cms-tabtitle .container{
+			height:119px;
+			width:100%;
+			display:flex;
+			flex-direction: row;
+			background: #fff;
+		}
+		.cms-tabtitle a{
+			position:relative;
+			font-size:32px;
+			color:#000;
+			flex:1;
+			line-height: 119px;
+			text-align:center;
+		}
+		.cms-tabtitle .active{
+			color:#a60e11;
+		}
+		.cms-tabtitle .active::after{
+			content:" ";
+			position:absolute;
+			height:10px;
+			width:100%;
+			background:#a60e11;
+			color:#a60e11;
+			bottom:0;
+			left:0;
+		}
+	</style>
+	<div class="cms-tabtitle">
+		<div class="container">
+			<a class="item active" href="">故事</a>
+			<a class="item" href="">故事</a>
+		</div>
+	<div>
+</body>
+</html>

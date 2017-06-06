@@ -1,0 +1,82 @@
+#if($content&&$content.size()==1)
+    #set($submodule1=$content.get(0))
+    #if($submodule1 && $submodule1.size() > 0)
+        <div class="cms-nav nav-container">
+           <div class="mask"></div>
+            <nav class="nav nav-static">
+                <ul class="nav-list">
+                    #foreach($item in $submodule1)
+                        #if($!{item.items} != "" && $!{item.items.size()} > 0)
+                           <li class="cms-firstc" cms-catagory='$!{item.fcategoryId}'>$!{item.title}</li>
+                        #else
+                            <li class="cms-firstc" cms-catagory='$!{item.h5link}'>$!{item.title}</li>
+                        #end
+                    #end
+                </ul>
+            </nav>
+            <nav class="nav nav-line">
+                <ul class="nav-list nav-list-fixed">
+                    #foreach($item in $submodule1)
+                        #if($!{item.items} != "" && $!{item.items.size()} > 0)
+                           <li class="cms-firstc" cms-catagory='$!{item.fcategoryId}'>$!{item.title}</li>
+                        #else
+                            <li class="cms-firstc" cms-catagory='$!{item.h5link}'>$!{item.title}</li>
+                        #end
+                    #end
+                </ul>
+                <div class="nav-down"><img src="https://imgcms.yit.com/cmsres/20170515/83b2229b-c853-4023-b95d-b58fae40f6ff.png"></div>
+            </nav>
+            <nav class="nav nav-all">
+                <div class="nav-up">全部选项<img src="https://imgcms.yit.com/cmsres/20170515/cebbe256-9014-4f8f-a5a3-13490b0d3009.png"></div>
+                <ul class="nav-list">
+                    #foreach($item in $submodule1)
+                        #if($!{item.items} != "" && $!{item.items.size()} > 0)
+                           <li class="cms-firstc" cms-catagory='$!{item.fcategoryId}'>$!{item.title}</li>
+                        #else
+                            <li class="cms-firstc" cms-catagory='$!{item.h5link}'>$!{item.title}</li>
+                        #end
+                    #end
+                </ul>
+            </nav>
+        </div>
+
+
+        #foreach($item in $submodule1)
+            #if($!{item.items} != "" && $!{item.items.size()} > 0)
+                <div class="cms-box" cms-catagory='$!{item.fcategoryId}'>
+                    <a href="$!{item.h5link}">
+                        <img class="lazyload" data-echo="$!{item.imgUrl}?imageView2/0/w/750" src="http://imgcms.yit.com/h5/images/spacer.gif" alt="">
+                    </a>
+                    #set($list=$item.items)
+                    #if($list && $list.size() > 0)
+                        #foreach($mItem in $list)
+                            <div class="cms-two">
+                                <div class="title">$!{mItem.title}</div>
+                                <ul>
+                                    #set($products=$mItem.products)
+                                    #foreach($itemt in $products)
+                                    <li>
+                                        <a href="$!{itemt.get('h5link')}">
+                                        <img class="lazyload" data-echo="$!{itemt.get('imgUrl')}?imageView2/0/w/360" src="http://imgcms.yit.com/h5/images/spacer.gif" alt="">
+                                        <div class="name ellipsis">$!{itemt.get("name")}</div>
+                                        <div class="name ellipsis">$!{itemt.get("thirdName")}</div>
+                                        <div class="subname ellipsis2">$!{itemt.get("subName")}</div>
+                                        <div class="rprice">
+                                            ¥<span class="cms-fill-price">$!{itemt.get("salePrice")}</span>
+                                        </div>
+                                        </a>
+                                    </li>
+                                    #end
+                                </ul>
+                                <div class="more" cms-tcatagory="$!{mItem.fcategoryId}" cms-fcatagory='$!{item.fcategoryId}'>
+                                    <span>更多$!{mItem.title}</span>
+                                    <span class="more-icon"></span>
+                                </div>
+                            </div>
+                        #end
+                    #end
+                </div>
+            #end
+        #end
+    #end
+#end

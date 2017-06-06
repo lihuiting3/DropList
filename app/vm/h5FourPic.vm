@@ -1,0 +1,13 @@
+#if($content&&$content.size()==1)
+    #set($submodule1=$content.get(0))
+    #if($submodule1 && $submodule1.size() > 0)
+    <div class="cms-fourpic">
+        #foreach($item in $submodule1)
+        <a href='$item.get("h5link")'>
+            <img class="lazyload" data-echo="$!{item.get('imgUrl')}?imageView2/0/w/180" src="http://imgcms.yit.com/h5/images/spacer.gif" alt="">
+            <div class="">$!{item.get('name')}</div>
+        </a>
+        #end
+    </div>
+    #end
+#end

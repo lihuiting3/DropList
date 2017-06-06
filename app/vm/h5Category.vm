@@ -1,0 +1,55 @@
+#if($content&&$content.size()==1)
+    #set($submodule1=$content.get(0))
+    #if($submodule1 && $submodule1.size() > 0)
+    <div class="cms-searchcatagory">
+        <ul class="fcatagory">
+            #foreach($item in $submodule1)
+                #if($!{item.items} != "" && $!{item.items.size()} > 0)
+                   <li class="item cms-firstc" cms-catagory='$!{item.fcategoryId}'>$!{item.title}</li>
+                #else
+                    <li class="item cms-firstc" cms-catagory='$!{item.h5link}'>$!{item.title}</li>
+                #end
+            #end
+        </ul>
+        #foreach($item in $submodule1)
+        #if($!{item.items} != "" && $!{item.items.size()} > 0)
+            <div  class="fcontent" cms-catagory='$!{item.fcategoryId}'>
+        #else
+            <div  class="fcontent" cms-catagory='$!{item.h5link}'>
+        #end
+        
+           <img class="banner" src="$!{item.imgUrl}">
+             <ul>
+                #if($!{item} != "" && $!{item.items.size()} > 0)
+                    #set($secondl = $!{item.items})
+                    #foreach($second in $secondl)
+                        #if($!{second} != "" && $!{second.products} != "" && $!{second.products.size()} > 0)
+                        <li>
+                            <div class="sdescription">
+                                <span class="line"></span>
+                                <span class="stitle">$!{second.title}</span>
+                                <span class="line"></span>
+                            </div>
+                            <ul class="hot">
+                                #set($products=$!{second.products})
+                                #foreach($itemt in $products)
+                                <li>
+                                    <a href="$!{itemt.h5link}">
+                                    <img src="$!{itemt.imgUrl}" >
+                                    <div class="hot-name">$!{itemt.name}</div>
+                                    </a>
+                                </li>
+                                #end
+                            </ul>
+                        </li>
+                        #end
+                    #end
+                #end
+            </ul>
+        </div>
+        #end
+    </div>
+    #end
+#end
+
+           

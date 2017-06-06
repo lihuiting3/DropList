@@ -1,0 +1,40 @@
+#if($content&&$content.size()==2)
+    #set($submodule1=$content.get(0))
+    #set($submodule2=$content.get(1))
+    #if($submodule2 && $submodule2.size() > 0)
+    <div class="cms-productslide cms-module-fillprice">
+        #if($!{cms_module_title}&&$!{cms_module_title}!="")
+            <div class="title">$!{cms_module_title}</div>
+        #end
+        #if($submodule1 && $submodule1.size() > 0)
+            #set($temp = $submodule1.get(0))
+            <a href="$!{temp.get('h5link')}">
+                <img class="lazyload banner" data-echo="$!{temp.get('imgUrl')}?imageView2/0/w/750" src="http://imgcms.yit.com/h5/images/spacer.gif">
+            </a>
+        #end
+        <ul>
+            #foreach($item in $submodule2)
+            <li class="cms-src-item" data-cms-itemid='$!{item.get("itemId")}'>
+                <a href='$!{item.get("h5link")}'>
+                    <div style="position:relative">
+                        <img class="lazyload" data-echo="$!{item.get('extImgUrl')}?imageView2/0/w/320" src="http://imgcms.yit.com/h5/images/spacer.gif">
+                        <div class="mask-pa cms-fill-soldout" style="display:none;">
+                            <span class="v-center">已售罄</span>
+                        </div>
+                    </div>
+                    <div class="desc ellipsis2">$!{item.get("name")}</div>
+                    <div class="price">
+                        <div class="real">
+                           ¥<span class="rprice cms-fill-price"></span>
+                        </div>
+                        <div class="origin cms-fill-referencepriceparent">
+                            ¥<span class="oprice cms-fill-referenceprice"></span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            #end
+        </ul>
+    </div>
+    #end
+#end

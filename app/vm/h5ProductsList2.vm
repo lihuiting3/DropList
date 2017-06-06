@@ -1,0 +1,54 @@
+#if($content&&$content.size()==1)
+    #set($submodule1=$content.get(0))
+    #if($submodule1 && $submodule1.size() > 0)
+    <div class="goods01 box-nobg cms-module-fillprice" #if($!{cms_module_backgroundColor} && $!{cms_module_backgroundColor} != "")style="$!{cms_module_backgroundColor}"#end>
+        #if($!{cms_module_title}&&$!{cms_module_title}!="")
+            #if($!{cms_module_href}&&$!{cms_module_href}!="")
+                <a href="$!{cms_module_href}">
+            #end
+            <div class="title title02">
+                <h2>$!{cms_module_title}</h2>
+            </div>
+            #if($!{cms_module_href}&&$!{cms_module_href}!="")
+                </a>
+            #end
+        #end
+        <ul class="goods-list clearfix">
+            #foreach($item in $submodule1)
+                #if($!{item.get("itemId")} && $!{item.get("itemId")} != "")
+                <li class="cms-src-item" data-cms-itemid="$!{item.get("itemId")}">
+                    <a href="$!{item.get('h5link')}">
+                        <div style="position:relative">
+                        <img class="lazyload" data-echo="$!{item.get('imgUrl')}?imageView2/0/w/360" src="http://imgcms.yit.com/h5/images/spacer.gif">
+                        <div class="mask-pa cms-fill-soldout" style="display:none;"><span class="v-center">已售罄</span></div>
+                        </div>
+                        <div class="fixed-height">
+                        <h2 class="ellipsis2">$!{item.get('name')}</h2>
+                        <p class="goods-text ellipsis2">$!{item.get('subName')}</p>
+                        </div>
+                        <p><em class="yen">¥</em><span class="price cms-fill-price"></span></p>
+                    </a>
+                </li>
+                #else
+                    #if($!{item.get('imgUrl')} && $!{item.get('imgUrl')}!="")
+                        <li>
+                            <a href="$!{item.get('h5link')}">
+                                <img class="lazyload" data-echo="$!{item.get('imgUrl')}?imageView2/0/w/360" src="http://imgcms.yit.com/h5/images/spacer.gif">
+                            </a>
+                        </li>
+                    #else
+                        <li class="goods-more">
+                            <a href="$!{item.get('h5link')}">
+                                <div class="v-center">
+                                    <span>$!{item.get('name')}</span>
+                                    <i class="goods-more-icon"></i>
+                                </div>
+                            </a>
+                        </li>
+                    #end
+                #end
+            #end
+        </ul>
+    </div>
+    #end
+#end

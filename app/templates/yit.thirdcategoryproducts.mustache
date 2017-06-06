@@ -1,0 +1,13 @@
+ {{#each products}}
+<li>
+    <a href="{{h5link}}">
+    <img class="lazyload" data-echo="{{thumbnailImageUrl}}?imageView2/0/w/360" src="http://imgcms.yit.com/h5/images/spacer.gif" alt="">
+    <div class="name ellipsis">{{productName}}</div>
+    <div class="name ellipsis">{{thirdName}}</div>
+    <div class="subname ellipsis2">{{secondName}}</div>
+    <div class="rprice">
+        ¥<span>{{price}}</span>
+    </div>
+    </a>
+</li>
+{{/each}}

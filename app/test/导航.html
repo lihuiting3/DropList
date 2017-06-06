@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="target-densitydpi=device-dpi,width=750">
+	<title>切图页面</title>
+
+	<!--# include file="/common/common4center.css.html" -->
+    <!-- build:css-->
+    <!--用以本地映射调试-->
+    <link href="http://imgcms.yit.com/h5/common/0.0.47/styles/milkt.common.css" rel="stylesheet" type="text/css">
+    <!-- endbuild-->
+    <script>    
+        if (window.screen.width < 750) {
+            var ratio = window.screen.width / 750;
+            var detectBrowser = function (name) {
+                if (navigator.userAgent.toLowerCase().indexOf(name) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            if (detectBrowser('ucbrowser') && detectBrowser('android') && window.devicePixelRatio) {
+                ratio = window.screen.width / 750 / window.devicePixelRatio;
+            }
+            var metas = document.querySelectorAll("meta[name=viewport]");
+            for (var i in metas) {
+                if (typeof metas[i].setAttribute == 'function') {
+                    metas[i].setAttribute('content', 'width=750, initial-scale=' + ratio + ', maximum-scale=' + ratio + ', user-scalable=no');
+                }
+            }
+        }
+    </script>
+    <style>
+    	body img{
+    		background:#d8d8d8;
+    	}
+    </style>
+</head>
+<body>
+	<!-- -->
+	<style>
+		.cms-nav{
+			overflow: hidden;
+			background: #fff;
+		}
+		.cms-nav .nav{
+			display:none;
+		}
+		.cms-nav .nav-static{
+			display:block;
+		}
+		.cms-nav .nav-list{
+			list-style: none;
+			overflow: hidden;
+		}
+		.cms-nav .nav-list-fixed{
+			white-space: nowrap;
+		    overflow-x: auto;
+		    overflow-y: hidden;
+		    -webkit-overflow-scrolling: touch;
+		    padding-right: 107px;
+		}
+		.cms-nav .nav-list li{
+			list-style: none;
+			height: 86px;
+			width:107px;
+			line-height: 86px;
+			font-size:28px;
+			color:#000000;
+			text-align:center;
+			border-bottom:2px solid #ededed;
+			float:left;
+		}
+		.cms-nav .nav-list-fixed li{
+			display:inline-block;
+			float:none;
+		}
+		.cms-nav .nav-list li.active{
+			color:#ad0e11;
+			border-bottom:4px solid #ad0e11;
+		}
+		.cms-nav .nav-line{
+			position: relative;
+		}
+		.cms-nav .nav-line.fixed{
+		    position: fixed;
+		    width: 100%;
+		    background: #fff;
+		    z-index: 999;
+		    top: 0;
+		    display:block;
+		}
+		.cms-nav .nav-down{
+			width:107px;
+			position:absolute;
+			right:0;
+			top:0;
+			height:86px;
+			background: #fff;
+			border-bottom: 2px solid #ededed;
+		}
+		.cms-nav .nav-down img{
+			width:30px;
+			height:30px;
+			margin:29px 53px;
+		}
+		.cms-nav .nav-up{
+			height:86px;
+			width:100%;
+			line-height: 86px;
+			font-size:28px;
+			color:#000000;
+			border-bottom:2px solid #ededed;
+			overflow: hidden;
+			padding-left:30px;
+		}
+		.cms-nav .nav-up img{
+			width:30px;
+			height:30px;
+			float:right;
+			margin:29px 53px;
+
+		}
+		.cms-nav .mask{
+			position:fixed;
+			height:100%;
+			width:100%;
+			top:0;
+			background:#000;
+			opacity:0.5;
+			z-index:10;
+			display:none;
+		}
+		.cms-nav .nav-all.fixed{
+			position: fixed;
+			display:block;
+		    width: 100%;
+		    background: #fff;
+		    z-index: 999;
+		    top: 0;
+		}
+	</style>
+		<div class="cms-nav nav-container">
+            <nav class="nav nav-static">
+                <ul class="nav-list">
+                    <li class="active">首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                </ul>
+            </nav>
+            <nav class="nav nav-line">
+            	<ul class="nav-list nav-list-fixed">
+                    <li class="active">首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                </ul>
+                <div class="nav-down"><img src="icon_下拉.png"></div>
+            </nav>
+            <nav class="nav nav-all">
+            	<div class="mask"></div>
+            	<div class="nav-up">全部选项<img src="icon_收起.png"></div>
+                <ul class="nav-list">
+                    <li class="active">首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                    <li>首页</li>
+                </ul>
+            </nav>
+        </div>
+</body>
+</html>

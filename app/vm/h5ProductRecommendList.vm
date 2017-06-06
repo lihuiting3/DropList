@@ -5,19 +5,21 @@
         #if($!{cms_module_title}&&$!{cms_module_title}!="")
         <div class="title title02">
             <h2>$!{cms_module_title}</h2>
-            <p>$!{cms_module_subtitle}</p>
         </div>
         #end
-        <ul>
+        <ul class="clearfix">
             #foreach($item in $submodule)
+                #if($!{item.get("itemId")} && $!{item.get("itemId")} != "")
                 <li class="cms-src-item" data-cms-itemid="$!{item.get("itemId")}">
                    <a href="$!{item.get('h5link')}">
-                    <div>
+                    <div class="relative-position">
                         <img class="lazyload" data-echo="$!{item.get('imgUrl')}?imageView2/0/w/750" src="http://imgcms.yit.com/h5/images/spacer.gif">
                         <div class="mask-pa cms-fill-soldout" style="display:none;"><span class="v-center">已售罄</span></div>
                     </div>
-                    <span class="titleinfo ellipsis">$!{item.get('name')}</span>
+                    <div class="fixed-height">
+                    <span class="titleinfo ellipsis2">$!{item.get('name')}</span>
                     <p class="ellipsis2">$!{item.get('subName')}</p>
+                    </div>
                     <div class="info">
                         <span class="redColor">¥ </span><span class="redColor realP cms-fill-price"></span>
                         <span class="cms-fill-referencepriceparent"><span class="del">¥</span><span class="del cms-fill-referenceprice"></span></span>
@@ -25,6 +27,24 @@
                     </div>
                     </a>
                 </li>
+                #else
+                    #if($!{item.get('imgUrl')} && $!{item.get('imgUrl')}!="")
+                        <li>
+                            <a href="$!{item.get('h5link')}">
+                                <img class="lazyload" data-echo="$!{item.get('imgUrl')}?imageView2/0/w/360" src="http://imgcms.yit.com/h5/images/spacer.gif">
+                            </a>
+                        </li>
+                    #else
+                        <li class="more">
+                            <a href="$!{item.get('h5link')}">
+                                <div class="v-center">
+                                    <span>$!{item.get('name')}</span>
+                                    <i class="goods-more-icon"></i>
+                                </div>
+                            </a>
+                        </li>
+                    #end
+                #end
             #end
         </ul>
     </section>
