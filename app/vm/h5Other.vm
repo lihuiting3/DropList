@@ -1,0 +1,22 @@
+#if($content&&$content.size()==1)
+    #set($submodule1=$content.get(0))
+    #if($submodule1 && $submodule1.size() > 0)
+     <div class="cms-other" style="
+    background: #fff;
+    padding-bottom: 26px;">
+        #if($!{cms_module_title}&&$!{cms_module_title}!="")
+            <div class="title">
+                <h2>$!{cms_module_title}</h2>
+            </div>
+            <span class="span"></span>
+        #end
+        #foreach($item in $submodule1)
+        <div class="cms-other">
+           <a href="$!{item.get('h5link')}">
+               <img class="banner" data-echo="$!{item.get('imgUrl')}" src="http://imgcms.yit.com/h5/images/spacer.gif" alt="">
+           </a>
+        </div>
+        #end
+      </div>
+    #end
+#end

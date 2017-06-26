@@ -1,0 +1,27 @@
+.cms-other .title{
+			font-size:34px;
+			color:#7a7a7a;
+			letter-spacing:0;
+			width:206px;
+			height:34px;
+			text-align:center;	
+			margin-top:30px;
+			margin-left:272px;
+			margin-right:272px;
+			padding-top: 30px;
+		}
+		.cms-other .span{
+		    background:#ad0e11;
+			width:60px;
+			height:4px;
+			display:inline-block;
+			margin-top:50px;
+			margin-left:345px;
+			margin-right:345px;
+		}
+        .cms-other .banner{
+		    background:#f3f5f5;
+			width:750px;
+			height:420px;
+			margin-top:30px;
+		}

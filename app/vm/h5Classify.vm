@@ -1,0 +1,58 @@
+#if($content&&$content.size()==2)
+    #set($submodule1=$content.get(0))
+    #set($submodule2=$content.get(1))
+    #if($submodule1 && $submodule1.size() > 0)
+        #if($!{cms_module_title}&&$!{cms_module_title}!="")
+            #if($!{cms_module_rightlink}&&$!{cms_module_rightlink}!="")
+                <a href="$!{cms_module_rightlink}">
+                    <div class="title title01">
+                        <h2>$!{cms_module_title}<span></span></h2>
+                    </div>
+                </a>
+            #else
+                <div class="title title01">
+                    <h2>$!{cms_module_title}</h2>
+                </div>
+            #end
+        #end
+        <div class="cms-classify cms-module-fillprice" style="
+    overflow: hidden;
+    background: #fff;
+    margin-bottom: 35px;">
+           <ul style="overflow: hidden;">
+            #foreach($item in $submodule1)
+            <li class="cms-src-item" data-cms-itemid="$!{item.get("itemId")}">
+              <a href="$!{item.get('h5link')}" style="position: relative;
+            display: block;
+            width: 354px;
+            height: 354px;
+            margin-top: 30px;
+            margin-left: 14px;">
+               <img class="banner" data-echo="$!{item.get('imgUrl')}" src="http://imgcms.yit.com/h5/images/spacer.gif" alt="">
+               <div class="mask-pa cms-fill-soldout" style="display:none;"><span class="v-center">已售罄</span></div>
+              </a>
+              <div class="name ellipsis">$!{item.get('name')}</div>
+              <div class="name ellipsis">$!{item.get('secondTitle')}</div>
+              <div class="description ellipsis2">$!{item.get('subName')}</div>
+              <span class="label">¥</span>
+              <div class="price">
+                  <span class="cms-fill-price">286</span>
+              </div>
+              <a href="$!{item.get('h5link')}">
+               <img class="cart" src="http://imgcms.yit.com/h5/images/spacer.gif" alt="">
+              </a>       
+            </li>
+             #end
+        </ul>      
+        #if($submodule2 && $submodule2.size() > 0)
+        #set($t2 = $submodule2.get(0))
+        <a href="$!{t2.get("h5link")}">
+        <div class="more1">
+            <span>$!{t2.get("name")}</span>
+            <span class="more-icon"></span>
+        </div>
+        </a>
+        #end
+        </div>
+    #end
+#end
