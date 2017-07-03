@@ -11,7 +11,19 @@
 			text-align:left;
 			width:320px;
 			height:41px;
-			margin-top:20px;
+			margin-top: 20px;
+			margin-left:30px;
+			margin-right:18px;
+		}
+		.cms-classify .name1{
+			font-size:30px;
+			color:#333333;
+			letter-spacing:0;
+			line-height:44px;
+			text-align:left;
+			width:320px;
+			height:41px;
+			margin-top:5px;
 			margin-left:30px;
 			margin-right:18px;
 		}
@@ -26,28 +38,38 @@
 			margin-left:30px;
 			margin-right:18px;
 		}
-		.cms-classify .label{
-			font-size:26px;
-			color:#ad0e11;
-			letter-spacing:0;
-			line-height:26px;		
-			display:inline-block;	
-			width:16px;
-			height:26px;
-			margin-top:38px;
-			margin-left:30px;			
-		}
 		.cms-classify .price{
-			font-size:34px;
-			color:#ad0e11;
-			letter-spacing:0;	
-			line-height:34px;
-			text-align:left;
-			display:inline-block;
-			width:63px;
-			height:34px;
-			margin-top:-16px;
-		}
+        	margin-top: 30px;
+            font-size: 26px;
+            margin-left: 30px;
+        }
+        .cms-classify .rprice{
+        	font-size:34px;
+        	color:#ad0e11;
+        	letter-spacing:0;
+        	line-height:26px;
+        	text-align:left;
+        	margin-left: 4px;
+            vertical-align: top;
+        }
+        .cms-classify .real, .cms-classify .origin{
+        	display:inline-block;
+        	position: relative;
+            overflow: hidden;
+            height: 26px;
+            margin-left: 4px;
+            vertical-align: top;
+        }
+        .cms-classify .origin{
+        	margin-left: 12px;
+            text-decoration: line-through;
+            opacity: 0.99;
+            font-size: 24px;
+            color: #cccccc;
+            letter-spacing: 0;
+            line-height: 34px;
+            text-align: left;
+        }
 		.cms-classify .cart{
 			background: url(https://imgcms.yit.com/cmsres/20170504/06f7898d-ac9f-4ec3-b7b7-f03f14a1e8d7.png);
             width: 60px;
