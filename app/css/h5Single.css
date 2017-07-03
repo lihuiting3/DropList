@@ -46,29 +46,39 @@
 			margin-left:30px;
 			margin-right:247px;
 		}
-		.cms-single .label{
-			font-size:26px;
-			color:#ad0e11;
-			letter-spacing:0;
-			line-height:26px;		
-			display:inline-block;	
-			width:16px;
-			height:26px;
-			margin-top:38px;
-			margin-left:35px;		
-		}
 		.cms-single .price{
-			font-size:34px;
-			color:#ad0e11;
-			letter-spacing:0;	
-			line-height:34px;
-			text-align:left;
-			display:inline-block;
-			width:63px;
-			height:34px;
-			margin-top:-18px;
-			
-		}
+        	margin-top: 30px;
+            font-size: 26px;
+            margin-left: 30px;
+        }
+        .cms-single .rprice{
+        	font-size:34px;
+        	color:#ad0e11;
+        	letter-spacing:0;
+        	line-height:26px;
+        	text-align:left;
+        	margin-left: 4px;
+            vertical-align: top;
+        }
+        .cms-single .real, .cms-classify .origin{
+        	display:inline-block;
+        	position: relative;
+            overflow: hidden;
+            height: 26px;
+            margin-left: 4px;
+            vertical-align: top;
+        }
+        .cms-single .origin{
+        	margin-left: 12px;
+            text-decoration: line-through;
+            display: inline-block;
+            opacity: 0.99;
+            font-size: 24px;
+            color: #cccccc;
+            letter-spacing: 0;
+            line-height: 34px;
+            text-align: left;
+        }
 		.cms-single .mask-pa{
           position: absolute;
           margin-top:0px;

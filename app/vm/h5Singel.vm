@@ -19,9 +19,13 @@
            </a>
            <div class="name ellipsis">$!{item.get('name')}</div>
            <div class="description ellipsis">$!{item.get('subName')}</div>
-           <span class="label">¥</span>
            <div class="price">
-                  <span class="cms-fill-price">286</span>
+                <div class="real">
+                    ¥<span class="rprice cms-fill-price"></span>
+                </div>
+                <div class="origin cms-fill-referencepriceparent">
+                    ¥<span class="oprice cms-fill-referenceprice"></span>
+                </div>
            </div>
         </div>
         #end
