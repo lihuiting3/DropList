@@ -1,0 +1,109 @@
+.sell-goods{
+	padding-top: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+.sell-goods .span1{
+    background: #ad0e11;
+    width: 33px;
+    height: 2px;
+    display: inline-block;
+    margin-top: 36px;
+    float: left;
+}
+.sell-goods .span2{
+	background: #ad0e11;
+    width: 33px;
+    height: 2px;
+    display: inline-block;
+    float: left;
+    margin-top: 36px;
+    margin-left: 12px;
+}
+.sell-goodsl1{
+    padding-top: 20px;
+    font-size: 34px;
+    color: #ad0e11;
+    display: inline-block;
+    float: left;
+    margin-left: 12px;
+    font-weight: normal;
+}
+.sell-goodsl2{
+	padding:0 20px 0 0px;;
+}
+.sell-goodsl2 li{
+	display: flex;
+	margin-bottom: 30px;
+	margin-left: 14px;
+}
+.sell-goodsl2 li:last-child{
+	border-bottom: 0 none;
+}
+.sell-goodsl201{
+	width: 340px;
+}
+.sell-goodsl2r1{
+	margin-right: 30px;
+	width: 320px;
+	height: 240px;
+	position:relative;
+}
+.sell-goodsl2r1 img{
+    max-height: 240px;
+}
+.sell-goodsl2r2{
+	position: relative;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+}
+.sell-goodsl201 h2{
+	font-size: 30px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 44px;
+    text-align: left;
+}
+.sell-goodsl201 p{
+	font-size: 24px;
+    color: #999999;
+    letter-spacing: 0;
+    line-height: 40px;
+    text-align: left;
+    margin-top: 15px;
+}
+.sell-goodsl202-yen{
+	display: inline-block;
+	width: 100%;
+}
+.sell-goodsl202-yen .yen{
+	font-size: 26px;
+    color: #ad0e11;
+    letter-spacing: 0;
+    line-height: 26px;
+    text-align: center;
+}
+.sell-goodsl202{
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+    -webkit-box-align: end;
+    align-items: flex-end;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.sell-goodsl202 .cart{
+    background: url(https://imgcms.yit.com/cmsres/20170504/06f7898d-ac9f-4ec3-b7b7-f03f14a1e8d7.png);
+    width: 60px;
+    height: 50px;
+}
+.sell-goodsl202-price .del-line{
+	display: inline-block;
+	color: #ad0e11;
+}
+.sell-goods .disabled{
+    color:#c1c1c1;
+}

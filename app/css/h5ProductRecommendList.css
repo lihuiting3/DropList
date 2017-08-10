@@ -1,6 +1,14 @@
 .relative-position{
     position:relative;
 }
+.cms-title {
+    font-size: 32px;
+    color: #333333;
+    line-height: 92px;
+    height:92px;
+    text-align: center;
+    width: 100%;
+}
 .v-center {
     position: absolute;
     top: 50%;
@@ -33,7 +41,7 @@
             transform: translate(-70%,-50%) rotate(-45deg);
 }
 .cms-recommend-list{
-    padding:30px;
+    padding: 0px 14px 30px;
     font-size:24px;
     line-height:40px;
     margin-bottom:30px;
@@ -44,17 +52,17 @@
     margin-bottom:30px;
 }
 .cms-recommend-list li{
-    width:330px;
+    width:354px;
     float:left;
-    padding-bottom:24px;
+    padding-bottom:30px;
     text-align: left;
 }
 .cms-recommend-list li:nth-child(2n + 1){
-    margin-right:30px;
+    margin-right:14px;
 }
 .cms-recommend-list img{
-    width:330px;
-    height:330px;
+    width:354px;
+    height:354px;
 }
 .cms-recommend-list .more{
     height:639px;
@@ -67,35 +75,48 @@
     padding-bottom: 80px;
 }
 .cms-recommend-list .fixed-height{
-    height:178px;
+    height:140px;
 }
 .cms-recommend-list .titleinfo{
-    font-size: 30px;
+    font-size: 26px;
     color: #333333;
-    line-height: 44px;
-    margin-top: 20px;
+    line-height: 26px;
+    height: 26px;
+    display: block;
+    margin-bottom: 8px;
+    margin-left: 16px;
 }
 .cms-recommend-list p{
-    height:80px;
-    margin-top:10px;
+    height: 64px;
+    line-height: 32px;
     color: #999;
+    margin-top: 12px;
+    margin-left: 16px;
+    width: 320px;
 }
 .cms-recommend-list .info{
-    margin-top:27px;
-    font-size: 26px;
-    color:#ccc;
-    height:60px;
-    line-height: 60px;
-    position:relative;
+    font-size: 24px;
+    color: #ccc;
+    position: relative;
+    height: 34px;
+    margin-left: 16px;
 }
 .cms-recommend-list .redColor{
     color:#ad0e11;
 }
+.cms-recommend-list .cms-soldout .redColor{
+    color:#999;
+}
+.cms-recommend-list .cms-soldout .shopping-car{
+    display:none;
+}
 .cms-recommend-list .realP{
-    font-size:34px;
+    font-size:30px;
+    margin-right: 10px;
+    margin-left: 4px;
 }
 .cms-recommend-list .shopping-car{
-    background:url(https://imgcms.yit.com/cmsres/20170213/5128584d-5d9b-45a4-a9a4-67e1d360e5ef.png);
+    background:url(https://imgcms.yit.com/cmsres/20170504/06f7898d-ac9f-4ec3-b7b7-f03f14a1e8d7.png);
     width:60px;
     height:60px;
     border-radius:100%;
@@ -103,4 +124,22 @@
 }
 .cms-recommend-list .del{
     text-decoration: line-through;
+}
+.cms-recommend-list .cms-label{
+    margin: 14px 18px 0px 16px;
+    border-radius:4px;
+    height:26px;
+    font-size: 20px;
+    color:#ffffff;
+    line-height: 26px;
+    //padding: 0 5px;
+    display:none;
+}
+.cms-recommend-list .cms-label-txt{
+    background: #c13b38;
+    border-radius: 4px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 5px;
+    display:none;
 }

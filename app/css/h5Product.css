@@ -1,0 +1,156 @@
+.cms-classify{
+     overflow: hidden;
+    background: #fff;
+    margin-bottom: 35px;
+}
+.cms-classify .title{
+      font-size:32px;
+      color:#333333;
+      letter-spacing:0;
+      height:32px;
+      text-align:center;  
+        margin-top: 30px;
+    }
+.cms-classify .banner{
+        background:#f3f5f5;
+      width:354px;
+      height:354px;
+    }
+    .cms-classify .name{
+      font-size:26px;
+      color:#333333;
+      letter-spacing:0;
+      line-height:26px;
+      text-align:left;
+      width:320px;
+      height:26px;
+      margin-top: 16px;
+      margin-left:30px;
+      margin-right:18px;
+    }
+    .cms-classify .name1{
+      font-size:26px;
+      color:#333333;
+      letter-spacing:0;
+      line-height:26px;
+      text-align:left;
+      width:320px;
+      height:26px;
+      margin-top:8px;
+      margin-left:30px;
+      margin-right:18px;
+    }
+    .cms-classify .description{
+      font-size: 24px;
+        color: #999999;
+        letter-spacing: 0;
+        line-height: 32px;
+        width: 320px;
+        height: 64px;
+        margin-top: 12px;
+        margin-left: 30px;
+        margin-right: 18px;
+    }
+    .cms-classify .price{
+          margin-top: 10px;
+            font-size: 24px;
+            margin-left: 30px;
+            height:34px;
+        }
+        .cms-classify .rprice{
+          font-size:30px;
+          color:#ad0e11;
+          letter-spacing:0;
+          line-height:34px;
+          text-align:left;
+          margin-left: 4px;
+          height:34px;
+        }
+        .cms-classify .real, .cms-classify .origin{
+          display:inline-block;
+          position: relative;
+            overflow: hidden;
+            height: 34px;
+            margin-left: 4px;
+            //vertical-align: top;
+        }
+        .cms-classify .origin{
+          margin-left: 12px;
+            text-decoration: line-through;
+            opacity: 0.99;
+            font-size: 24px;
+            color: #cccccc;
+            letter-spacing: 0;
+            line-height: 34px;
+            text-align: left;
+        }
+    .cms-classify .more{
+            font-size:28px;
+            color:#ad0e11;
+            letter-spacing:-1px;
+            text-align:center;
+    }
+      .cms-classify  li{
+      float:left;
+      background: #fff;
+    }
+    .cms-classify .mask-pa{
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: rgba(0,0,0,0.4);
+        }
+        .cms-classify .more1{
+          font-size: 28px;
+          color: #ad0e11;
+          text-align: center;
+          height: 94px;
+            
+        }
+         .cms-classify .more1 span{
+          display: inline-block;
+          height: 37px;
+          line-height: 37px;
+          vertical-align: top;
+          margin-top: 29px;
+          margin-bottom: 30px;
+         }
+         .cms-classify .more-icon{
+           border: 1px solid #ad0e11;
+           width: 37px;
+           height: 38px;
+           border-radius: 100%;
+           -webkit-border-radius: 100%;
+           margin-left: 20px;
+           margin-top: -4px;
+         }
+         .cms-classify .more-icon:after {
+            content: " ";
+            transform: translate(-5px, 9px) rotate(45deg);
+            -webkit-transform: translate(-5px, 9px) rotate(45deg);
+            border-top: 1px solid #ad0e11;
+            border-right: 1px solid #ad0e11;
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+         }
+         .cms-classify .cms-label{
+    margin: 12px 18px 0px 34px;
+    border-radius:4px;
+    height:28px;
+    font-size: 20px;
+    color:#ffffff;
+    line-height: 26px;
+    //padding: 0 5px;
+    display:none;
+}
+.cms-classify .cms-label-txt{
+    background: #c13b38;
+    border-radius: 4px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 5px;
+    display:none;
+}

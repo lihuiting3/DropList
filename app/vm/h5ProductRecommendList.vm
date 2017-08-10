@@ -2,11 +2,13 @@
     #set($submodule=$content.get(0))
     #if($submodule && $submodule.size() > 0)
     <section class="cms-recommend-list cms-module-fillprice">
+       
         #if($!{cms_module_title}&&$!{cms_module_title}!="")
-        <div class="title title02">
-            <h2>$!{cms_module_title}</h2>
+        <div class="cms-title">
+            $!{cms_module_title}
         </div>
         #end
+       
         <ul class="clearfix">
             #foreach($item in $submodule)
                 #if($!{item.get("itemId")} && $!{item.get("itemId")} != "")
@@ -17,14 +19,15 @@
                         <div class="mask-pa cms-fill-soldout" style="display:none;"><span class="v-center">已售罄</span></div>
                     </div>
                     <div class="fixed-height">
-                    <span class="titleinfo ellipsis2">$!{item.get('name')}</span>
+                    <span class="titleinfo ellipsis" style="margin-top:16px;">$!{item.get('name')}</span>
+                     <span class="titleinfo ellipsis">$!{item.get('secondTitle')}</span>
                     <p class="ellipsis2">$!{item.get('subName')}</p>
                     </div>
                     <div class="info">
-                        <span class="redColor">¥ </span><span class="redColor realP cms-fill-price"></span>
+                        <span class="redColor">¥</span><span class="redColor realP cms-fill-price"></span>
                         <span class="cms-fill-referencepriceparent"><span class="del">¥</span><span class="del cms-fill-referenceprice"></span></span>
-                        <img class="shopping-car" src="http://imgcms.yit.com/h5/images/spacer.gif">
                     </div>
+                    <div class="cms-label two"><span class="cms-label-txt"></span></div>
                     </a>
                 </li>
                 #else

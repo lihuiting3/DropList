@@ -1,0 +1,148 @@
+.cms-new .banner{
+        background:#f3f5f5;
+      width:354px;
+      height:354px;
+    }
+    .cms-new .name{
+      font-size:30px;
+      color:#333333;
+      letter-spacing:0;
+      line-height:44px;
+      text-align:left;
+      width:320px;
+      height:41px;
+      margin-top: 20px;
+      margin-left:30px;
+      margin-right:18px;
+    }
+    .cms-new .name1{
+      font-size:30px;
+      color:#333333;
+      letter-spacing:0;
+      line-height:44px;
+      text-align:left;
+      width:320px;
+      height:41px;
+      margin-top:5px;
+      margin-left:30px;
+      margin-right:18px;
+    }
+    .cms-new .span1{
+            background: #ad0e11;
+            width: 33px;
+            height: 2px;
+            display: inline-block;
+            margin-top: 36px;
+            float: left;
+            margin-right: 12px;
+        }
+        .cms-new .span2{
+          background: #ad0e11;
+            width: 33px;
+            height: 2px;
+            display: inline-block;
+            float: left;
+            margin-top: 36px;
+            margin-left: 12px;
+        }
+        .cms-new{
+            padding-top: 20px;
+            font-size: 34px;
+            color: #ad0e11;
+            display: inline-block;
+            float: left;
+            font-weight: normal;
+        }
+    .cms-new .description{
+      font-size:24px;
+      color:#999999;
+      letter-spacing:0;
+      line-height:40px; 
+      width:320px;
+      height:80px;
+      margin-top:16px;
+      margin-left:30px;
+      margin-right:18px;
+    }
+    .cms-new .price{
+          margin-top: 20px;
+            font-size: 26px;
+            margin-left: 30px;
+        }
+        .cms-new .rprice{
+          font-size:34px;
+          color:#ad0e11;
+          letter-spacing:0;
+          line-height:26px;
+          text-align:left;
+          margin-left: 4px;
+            vertical-align: top;
+        }
+        .cms-new .real, .cms-new .origin{
+          display:inline-block;
+          position: relative;
+            overflow: hidden;
+            height: 26px;
+            margin-left: 4px;
+            vertical-align: top;
+        }
+        .cms-new .origin{
+          margin-left: 12px;
+            text-decoration: line-through;
+            opacity: 0.99;
+            font-size: 24px;
+            color: #cccccc;
+            letter-spacing: 0;
+            line-height: 34px;
+            text-align: left;
+        }
+    .cms-new .more{
+            font-size:28px;
+            color:#9b9b9b;
+            letter-spacing:-1px;
+            text-align:center;
+    }
+      .cms-new  li{
+      float:left;
+      background: #fff;
+    }
+    .cms-new .mask-pa{
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: rgba(0,0,0,0.4);
+        }
+        .cms-new .more1{
+          font-size: 28px;
+          color: #ad0e11;
+          text-align: center;
+          padding-top: 71px;
+            
+        }
+         .cms-new .more1 span{
+          display: inline-block;
+          height: 37px;
+          vertical-align: top;
+          margin-bottom: 45px;
+         }
+         .cms-new .more-icon{
+           border: 1px solid #ad0e11;
+           width: 37px;
+           height: 38px;
+           border-radius: 100%;
+           -webkit-border-radius: 100%;
+           margin-left: 40px;
+           margin-top: -4px;
+         }
+         .cms-new .more-icon:after {
+            content: " ";
+            transform: translate(-5px, 9px) rotate(45deg);
+            -webkit-transform: translate(-5px, 9px) rotate(45deg);
+            border-top: 1px solid #ad0e11;
+            border-right: 1px solid #ad0e11;
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+         }

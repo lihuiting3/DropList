@@ -9,23 +9,29 @@
         <ul>
             #foreach($item in $submodule1)
             <li class="cms-src-item" data-cms-itemid="$!{item.get("itemId")}">
-                <div style="position:relative;">
+                <a href='$!{item.get("h5link")}'>
+                <div style="position:relative;margin-bottom:16px;">
                     <img class="lazyload" data-echo="$!{item.get('imgUrl')}?imageView2/0/w/360" src="http://imgcms.yit.com/h5/images/spacer.gif" alt="">
                     <div class="mask-pa cms-fill-soldout cms-buy-btn" style="display:none;"><span class="v-center">已售罄</span></div>
                 </div>
-                <div class="name ellipsis">${item.get("name")}</div>
-                <div class="name ellipsis">哈佛大学出版社镇社之</div>
-                <div class="subname ellipsis2">${item.get("subName")}</div>
+                <div class="name ellipsis">$!{item.get("name")}</div>
+                <div class="name ellipsis">$!{item.get("secondTitle")}</div>
+                <div class="subname ellipsis2">$!{item.get("subName")}</div>
                 <div class="rprice">
-                    ¥<span class="cms-fill-price">286</span>
-                </div>
+                    ¥<span class="cms-fill-price"></span>
+                    <div class="origin cms-fill-referencepriceparent">
+                        ¥<span class="oprice cms-fill-referenceprice"></span>
+                    </div>
+                 </div>
+                <div class="cms-label two"><span class="cms-label-txt"></span></div>
+                </a>
             </li>
             #end
         </ul>
         #if($submodule2 && $submodule2.size() > 0)
         #set($t2 = $submodule2.get(0))
         <a href="$!{t2.get("h5link")}">
-        <div class="more">
+        <div class="more1">
             <span>$!{t2.get("name")}</span>
             <span class="more-icon"></span>
         </div>
